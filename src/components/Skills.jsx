@@ -1,4 +1,11 @@
 const Skills = () => {
+  class Skill {
+    constructor(name) {
+      this.name = name;
+
+      // method_1(name) { Take name and return font awesome icon }
+    }
+  }
   return (
     <div className="skills-container">
       <h2>Skills</h2>
