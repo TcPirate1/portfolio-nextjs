@@ -8,20 +8,21 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "TC's Portfolio",
   description: "Portfolio in Nextjs",
-  stylesheet: [
-    {
-      url: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
-      integrity:
-        "sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==",
-      crossorigin: "anonymous",
-      referrerpolicy: "no-referrer",
-    },
-  ],
+  author: "Terence Chen",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+      </head>
       <body className={inter.className}>
         <Navbar />
         {children}
@@ -30,13 +31,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-// import '@/styles/globals.css';
-// import Layout from '../components/layout';
-
-// export default function App({ Component, pageProps }) {
-//   return (
-//     <Layout>
-//       <Component {...pageProps} />
-//     </Layout>
-//   );
-// }
