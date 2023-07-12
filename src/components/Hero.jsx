@@ -1,47 +1,40 @@
 import Image from "next/image";
+import { socialLinks } from "./social_links";
 
 const Hero = () => {
   return (
     <div className="hero-container">
       <Image
-        src="/images/profile.jpeg"
+        src="/profile.png"
         className="profile-img"
         width={300}
         height={300}
-        alt="Joe's personal headshot"
+        alt="Terence's headshot"
       />
       <div className="hero-text">
-        <h1>Hey, I'm Terence Chen 👋</h1>
+        <h1>Hey, I'm Terence Chen AKA TC 👋</h1>
         <p>
-          I'm a software developer based in Lagos, Nigeria. I specialize in
-          building (and occasionally designing) exceptional websites,
-          applications, and everything in between.
+          I'm a software developer student based in Christchurch, New Zealand. I
+          have taken the plunge into this field and have been learning a lot
+          throughout my journey and hope to continue doing so. You can find me
+          on various social media platforms below.
         </p>
         <div className="social-icons">
-          <a
-            href="https://twitter.com/olawanle_joel"
-            aria-label="Twitter"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fa-brands fa-twitter"></i>
-          </a>
-          <a
-            href="https://github.com/olawanlejoel"
-            aria-label="GitHub"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fa-brands fa-github"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/olawanlejoel/"
-            aria-label="LinkedIn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fa-brands fa-linkedin"></i>
-          </a>
+          {socialLinks.map((link) => {
+            return (
+              <a
+                key={link.id}
+                href={link.url}
+                aria-label={
+                  link.name.charAt(0).toUpperCase() + link.name.slice(1)
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className={`fa-brands fa-${link.name}`}></i>
+              </a>
+            );
+          })}
         </div>
       </div>
     </div>

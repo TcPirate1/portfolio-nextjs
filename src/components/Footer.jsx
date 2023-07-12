@@ -1,3 +1,5 @@
+import { socialLinks } from "./social_links";
+
 const Footer = () => {
   return (
     <>
@@ -5,30 +7,21 @@ const Footer = () => {
       <div className="footer-container">
         <p>© {new Date().getFullYear()} TC's Portfolio</p>
         <div className="social_icons">
-          <a
-            href="https://twitter.com/olawanle_joel"
-            aria-label="Twitter"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fa-brands fa-twitter"></i>
-          </a>
-          <a
-            href="https://github.com/olawanlejoel"
-            aria-label="GitHub"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fa-brands fa-github"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/olawanlejoel/"
-            aria-label="LinkedIn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fa-brands fa-linkedin"></i>
-          </a>
+          {socialLinks.map((link) => {
+            return (
+              <a
+                key={link.id}
+                href={link.url}
+                aria-label={
+                  link.name.charAt(0).toUpperCase() + link.name.slice(1)
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className={`fa-brands fa-${link.name}`}></i>
+              </a>
+            );
+          })}
         </div>
       </div>
     </>

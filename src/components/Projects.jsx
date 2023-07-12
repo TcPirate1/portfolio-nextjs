@@ -16,7 +16,6 @@ const Projects = () => {
                   </a>
                 </div>
               </div>
-              {/* Want tech stack to be displayed here instead of seperate component */}
               <h3>{project.title}</h3>
               <p>{project.description}</p>
             </div>

@@ -1,11 +1,6 @@
-const Skills = () => {
-  class Skill {
-    constructor(name) {
-      this.name = name;
+import { languages_libraries_frameworks } from "./languages_libraries_frameworks";
 
-      // method_1(name) { Take name and return font awesome icon }
-    }
-  }
+const Skills = () => {
   return (
     <div className="skills-container">
       <h2>Skills</h2>
@@ -22,18 +17,19 @@ const Skills = () => {
           <i className="fa-brands fa-js-square js-icon"></i>
           <p>JavaScript</p>
         </div>
-        <div className="skill-card react">
-          <i className="fa-brands fa-react react-icon"></i>
-          <p>React</p>
-        </div>
-        <div className="skill-card node">
-          <i className="fa-brands fa-node-js node-icon"></i>
-          <p>Node</p>
-        </div>
-        <div className="skill-card python">
-          <i className="fa-brands fa-python python-icon"></i>
-          <p>Python</p>
-        </div>
+        {languages_libraries_frameworks.map((item) => {
+          return (
+            <div
+              key={item.id}
+              className={`skill-card ${item.name.toLowerCase()}`}
+            >
+              <i
+                className={`fa-brands fa-${item.name.toLowerCase()} ${item.name.toLowerCase()}-icon`}
+              ></i>
+              <p>{item.name}</p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
