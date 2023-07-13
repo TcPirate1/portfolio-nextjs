@@ -293,6 +293,14 @@ hr {
   background-color: #3776ab;
 }
 
+.skills-container .grid-skills .c-sharp:hover {
+  background-color: #9134b6;
+}
+
+.skills-container .grid-skills .nextjs:hover {
+  background-color: #000000;
+}
+
 /* Projects */
 .projects-container {
   padding: 2rem 0;
