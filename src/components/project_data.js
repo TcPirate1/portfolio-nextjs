@@ -1,33 +1,27 @@
 const projectData = [
   {
-    title: "Todo List App",
+    title: "Full-stack Card database website",
     description:
-      "A simple Todo List App built with JavaScript. All datas are stored in localstorage. It helps users check list out their plans and tick as they do them.",
-    gitHubLink: "https://github.com/olawanlejoel/Todo-List-App",
+      'A website that used Next.js, Node.js and MongoDB. This website started as a website for the "MHA" card game where users could register and login, search the database for cards and build their decks, however within a few weeks we had to scale-down our project to meet the deadline. This meant the website is now only a card database with a search function and login functionalities.',
+    gitHubLink: "",
   },
   {
-    title: "Books Library App",
+    title: "Card Searcher",
     description:
-      "A simple Book Library App built with JavaScript. It helps readers have a good list of books they are either currently reading or have finished reading.",
-    gitHubLink: "https://github.com/olawanlejoel/Book-Library",
+      "A terminal program designed to search through an excel file for a particular card when its card code or name is entered. This was done with a Python library called Openpyxl and has limited editing capabilities.",
+    gitHubLink: "",
   },
   {
-    title: "Quotes Generator",
+    title: "Django portfolio website",
     description:
-      "Helps you generate quotes from about 1600 quotes written by different authors . Quotes are automatically copied to your clipboards.",
-    gitHubLink: "https://github.com/olawanlejoel/random-quote-generator",
+      "Prior to making this website, I created a basic portfolio website using Django and Bootstrap, the main feature of this site was the capability for it to organize, the projects I entered into the SQLite database, into categories without my interference. This was my 2nd time creating a portfolio site and my first time hosting a website live. I used pythonanywhere to host the website.",
+    gitHubLink: "",
   },
   {
-    title: "Password Generator",
+    title: "Spotify Playlist Generator",
     description:
-      "Helps you generates random passwords, you can select what you want your password to entail and also you can copy generated password to clipboard.",
-    gitHubLink: "https://github.com/olawanlejoel/Password-Generator",
-  },
-  {
-    title: "Twitter UI Clone",
-    description:
-      "Simple Twitter UI clone built with TailwindCSS and Vue Js. This covers only the homepage of Twitter UI. This is cool to get started with TailwindCSS as it helps understand basic concepts.",
-    gitHubLink: "https://github.com/olawanlejoel/TwitterUI-clone",
+      'This is a Python project that uses the Spotify API and Spotipy library to generate 2 different playlists. Calm and Upbeat. This organized my music library into the 2 playlists based on the "dancability" of the song.',
+    gitHubLink: "",
   },
 ];
 

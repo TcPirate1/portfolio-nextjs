@@ -1,14 +1,17 @@
 export const languages_libraries_frameworks = [
   {
+    name: "Next.js",
+  },
+  {
     name: "React",
   },
   {
     name: "Node",
   },
   {
-    name: "Nextjs",
+    name: "Python",
   },
   {
-    name: "Python",
+    name: "C#/.net",
   },
 ];
