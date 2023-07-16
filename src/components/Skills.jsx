@@ -1,4 +1,5 @@
 import { languages_libraries_frameworks } from "./languages_libraries_frameworks";
+import { random_keyID } from "./random_keyID.js";
 
 const Skills = () => {
   return (
@@ -20,7 +21,7 @@ const Skills = () => {
         {languages_libraries_frameworks.map((item) => {
           return (
             <div
-              key={item.id}
+              key={random_keyID()}
               className={`skill-card ${item.name.toLowerCase()}`}
             >
               <i

@@ -1,4 +1,5 @@
 import projectData from "./project_data.js";
+import { random_keyID } from "./random_keyID.js";
 
 const Projects = () => {
   return (
@@ -7,7 +8,7 @@ const Projects = () => {
       <div className="projects-grid">
         {projectData &&
           projectData.map((project) => (
-            <div className="project-card" key={project.id}>
+            <div className="project-card" key={random_keyID()}>
               <div className="project-header">
                 <i className="fa-regular fa-folder-open folder-icon"></i>
                 <div className="small-icons">

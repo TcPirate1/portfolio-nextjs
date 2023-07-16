@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { socialLinks } from "./social_links";
+import { random_keyID } from "./random_keyID.js";
 
 const Hero = () => {
   return (
@@ -23,7 +24,7 @@ const Hero = () => {
           {socialLinks.map((link) => {
             return (
               <a
-                key={link.id}
+                key={random_keyID()}
                 href={link.url}
                 aria-label={
                   link.name.charAt(0).toUpperCase() + link.name.slice(1)
