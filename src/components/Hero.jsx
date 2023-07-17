@@ -10,15 +10,15 @@ const Hero = () => {
         className="profile-img"
         width={300}
         height={300}
-        alt="Terence's headshot"
+        alt="Terence&#39;s headshot"
       />
       <div className="hero-text">
-        <h1>Hey, I'm Terence Chen AKA TC 👋</h1>
+        <h1>Hey, I&#39;m Terence Chen AKA TC 👋</h1>
         <p>
-          I'm a software developer student based in Christchurch, New Zealand. I
-          have taken the plunge into this field and have been learning a lot
-          throughout my journey and hope to continue doing so. You can find me
-          on various social media platforms below.
+          I&#39;m a software developer student based in Christchurch, New
+          Zealand. I have taken the plunge into this field and have been
+          learning a lot throughout my journey and hope to continue doing so.
+          You can find me on various social media platforms below.
         </p>
         <div className="social-icons">
           {socialLinks.map((link) => {

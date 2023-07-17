@@ -10,10 +10,10 @@ const About = () => {
             In my spare time, I play video games, card & board games, watch tv
             shows, anime and read books. You will find that I tend to stick to
             one hobby for a while and then shifting to a different one, but I am
-            also willing to have a chat about anything. <br /> You'll find
+            also willing to have a chat about anything. <br /> You&#39;ll find
             though that despite this, most of my personal projects will be
-            related to card games as I have been finding that's where most of my
-            ideas lead me.
+            related to card games as I have been finding that&#39;s where most
+            of my ideas lead me.
           </p>
           <p>
             Throughout my studies, I have been challenged to use a variety of

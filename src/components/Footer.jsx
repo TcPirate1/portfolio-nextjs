@@ -6,7 +6,7 @@ const Footer = () => {
     <>
       <hr />
       <div className="footer-container">
-        <p>© {new Date().getFullYear()} TC's Portfolio</p>
+        <p>© {new Date().getFullYear()} TC&#39;s Portfolio</p>
         <div className="social_icons">
           {socialLinks.map((link) => {
             return (
