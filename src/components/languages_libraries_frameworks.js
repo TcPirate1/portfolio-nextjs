@@ -1,8 +1,5 @@
 export const languages_libraries_frameworks = [
   {
-    name: "Nextjs",
-  },
-  {
     name: "React",
   },
   {
@@ -10,8 +7,5 @@ export const languages_libraries_frameworks = [
   },
   {
     name: "Python",
-  },
-  {
-    name: "C-sharp",
   },
 ];

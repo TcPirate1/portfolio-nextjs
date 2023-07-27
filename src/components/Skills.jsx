@@ -18,6 +18,10 @@ const Skills = () => {
           <i className="fa-brands fa-js-square js-icon"></i>
           <p>JavaScript</p>
         </div>
+        <div className="skill-card nextjs">
+          <img className="nextjs" src="/next-js.svg"></img>
+          <p>NextJS</p>
+        </div>
         {languages_libraries_frameworks.map((item) => {
           return (
             <div
@@ -31,6 +35,16 @@ const Skills = () => {
             </div>
           );
         })}
+        <div className="skill-card c#">
+          <img
+            className="c#"
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg"
+            alt="csharp"
+            width="35"
+            height="35"
+          />
+          <p>C#</p>
+        </div>
       </div>
     </div>
   );

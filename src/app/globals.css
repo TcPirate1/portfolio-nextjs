@@ -293,7 +293,7 @@ hr {
   background-color: #3776ab;
 }
 
-.skills-container .grid-skills .c-sharp:hover {
+.skills-container .grid-skills .c\#:hover {
   background-color: #9134b6;
 }
 
