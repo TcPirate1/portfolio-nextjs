@@ -16,9 +16,10 @@ const Hero = () => {
         <h1>Hey, I&#39;m Terence Chen AKA TC 👋</h1>
         <p>
           I&#39;m a software developer student based in Christchurch, New
-          Zealand. I have taken the plunge into this field and have been
-          learning a lot throughout my journey and hope to continue doing so.
-          You can find me on various social media platforms below.
+          Zealand, studying at Whitecliffe. I have taken the plunge into this
+          field and have been learning a lot throughout my journey and hope to
+          continue doing so. You can find me on various social media platforms
+          below.
         </p>
         <div className="social-icons">
           {socialLinks.map((link) => {
