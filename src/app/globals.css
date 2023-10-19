@@ -204,15 +204,14 @@ hr {
   height: 530px;
   object-fit: cover;
   border: 2px solid #dadadb;
-  /* filter: grayscale(100%);
+  filter: grayscale(100%);
   transition: all 0.5s ease-in-out;
-  cursor: cell; */
 }
 
-/* .about-container .flex-about .about-img .profile-img:hover {
+.about-container .flex-about .about-img .profile-img:hover {
   filter: grayscale(0%);
   transform: scale(1.02);
-} */
+}
 
 @media screen and (max-width: 768px) {
   .about-container .flex-about {

@@ -38,7 +38,7 @@ const Skills = () => {
         <div className="skill-card c#">
           <img
             className="c#"
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg"
+            src="/csharp-original.svg"
             alt="csharp"
             width="35"
             height="35"

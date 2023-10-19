@@ -12,6 +12,12 @@ const projectData = [
     link: "https://github.com/TcPirate1/Excel_Searcher-Python",
   },
   {
+    title: "C# Console card searcher",
+    description:
+      "A C# version of the aforementioned \"Card Searcher\". This utilizes MongoDB to store the card's details and allows me to see if I have the card in my collection by entering it's name or card code.",
+    link: "https://github.com/TcPirate1/FFTCG_collection",
+  },
+  {
     title: "Django portfolio website",
     description:
       "Prior to making this website, I created a basic portfolio website using Django and Bootstrap, the main feature of this site was the capability for it to organize, the projects I entered into the SQLite database, into categories without my interference. This was my 2nd time creating a portfolio site and my first time hosting a website live. I used pythonanywhere to host the website.",
