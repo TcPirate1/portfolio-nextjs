@@ -6,6 +6,9 @@ export const languages_libraries_frameworks = [
     name: "Node",
   },
   {
+    name: "php",
+  },
+  {
     name: "Python",
   },
 ];

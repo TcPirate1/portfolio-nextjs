@@ -7,13 +7,21 @@ const About = () => {
       <div className="flex-about">
         <div className="about-text">
           <p>
-            In my spare time, I play video games, card & board games, watch tv
-            shows, anime and read books. You will find that I tend to stick to
-            one hobby for a while and then shifting to a different one, but I am
-            also willing to have a chat about anything. <br /> You&#39;ll find
-            though that despite this, most of my personal projects will be
-            related to card games as I have been finding that&#39;s where most
-            of my ideas lead me.
+            I started in 2020, like everyone else, had decided to shift careers.
+            After working a couple of jobs I had settled for a forklift driving
+            job for a few years after my first time studying science. I had
+            decided to go back to study and chose IT, not really knowing what I
+            wanted but had experience building computers and at the time, played
+            a lot of video games. This decision came at a convenient time as I
+            found out the NZ government were funding IT studies through TTAF
+            program and gave it a go.
+            <br /> I am now on my last year of the Bachelors and looking forward
+            to seeing what this can lead to!
+          </p>
+          <p>
+            In my spare time, I play video, card & board games, watch tv shows,
+            anime and read books and finding new ways to mess with my Linux
+            system.
           </p>
           <p>
             Throughout my studies, I have been challenged to use a variety of

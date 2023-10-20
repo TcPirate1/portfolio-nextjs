@@ -45,6 +45,26 @@ const Skills = () => {
           />
           <p>C#</p>
         </div>
+        <div className="skill-card mysql">
+          <img
+            className="mysql"
+            src="/mysql.svg"
+            alt="mysql"
+            width="35"
+            height="35"
+          />
+          <p>MySql</p>
+        </div>
+        <div className="skill-card mongodb">
+          <img
+            className="mongodb"
+            src="/mongodb.svg"
+            alt="mongodb"
+            width="35"
+            height="35"
+          />
+          <p>MongoDB</p>
+        </div>
       </div>
     </div>
   );
