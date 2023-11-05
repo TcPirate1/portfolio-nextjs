@@ -11,42 +11,40 @@ const Contact = () => {
 
         <form method="post" action="/">
           <div>
-            <label for="name">
-              <span class="required">Name: *</span>
+            <label htmlFor="name">
+              <span className="required">Name: *</span>
               <input
                 type="text"
                 id="name"
                 name="name"
-                value=""
                 placeholder="Your Name"
                 required="required"
-                tabindex="1"
-                autofocus="autofocus"
+                tabIndex="1"
+                autoFocus="autofocus"
               />
             </label>
           </div>
           <div>
-            <label for="email">
-              <span class="required">Email: *</span>
+            <label htmlFor="email">
+              <span className="required">Email: *</span>
               <input
                 type="email"
                 id="email"
                 name="email"
-                value=""
                 placeholder="Your Email"
-                tabindex="2"
+                tabIndex="2"
                 required="required"
               />
             </label>
           </div>
           <div>
-            <label for="message">
-              <span class="required">Message: *</span>
+            <label htmlFor="message">
+              <span className="required">Message: *</span>
               <textarea
                 id="message"
                 name="message"
                 placeholder="Please write your message here."
-                tabindex="5"
+                tabIndex="5"
                 required="required"
               ></textarea>
             </label>
