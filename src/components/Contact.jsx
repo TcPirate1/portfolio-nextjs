@@ -9,18 +9,19 @@ const Contact = () => {
         <p id="failure">Oopsie...message not sent.</p>
         <p id="success">Your message was sent successfully. Thank you!</p>
 
-        <form method="post" action="/">
+        <form id="contact_form">
+          <input type="hidden" name="number" />
           <div>
             <label htmlFor="name">
               <span className="required">Name: *</span>
               <input
                 type="text"
                 id="name"
-                name="name"
+                name="from_name"
                 placeholder="Your Name"
                 required="required"
                 tabIndex="1"
-                autoFocus="autofocus"
+                autoFocus={true}
               />
             </label>
           </div>
@@ -30,7 +31,7 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
-                name="email"
+                name="sender_email"
                 placeholder="Your Email"
                 tabIndex="2"
                 required="required"
