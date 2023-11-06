@@ -1,4 +1,56 @@
+"use client";
+import { useState, useRef } from "react";
+
 const Contact = () => {
+  const formRef = useRef();
+  const [form, setForm] = useState({
+    from_name: "",
+    sender_email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    setTimeout(() => {}, 2000);
+    emailjs
+      .send(
+        "service_gyqj9s6",
+        "template_8ohyoci",
+        {
+          from_name: form.from_name,
+          sender_email: form.sender_email,
+          message: form.message,
+        },
+        "9s8UWgGcYff43JhPb"
+      )
+      .then(
+        setLoading(false),
+        (result) => {
+          console.log("Success!", result.text, result.status);
+          document.getElementById("success").style.display = "block";
+          document.getElementById("failure").style.display = "none";
+          setForm({
+            from_name: "",
+            sender_email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          console.log("Failed", error.text);
+          document.getElementById("failure").style.display = "block";
+          document.getElementById("success").style.display = "none";
+        }
+      );
+  };
+
   return (
     <div className="contact-container">
       <div id="contact-form">
@@ -9,7 +61,7 @@ const Contact = () => {
         <p id="failure">Oopsie...message not sent.</p>
         <p id="success">Your message was sent successfully. Thank you!</p>
 
-        <form id="contact_form">
+        <form ref={formRef} onSubmit={handleSubmit}>
           <input type="hidden" name="number" />
           <div>
             <label htmlFor="name">
@@ -18,6 +70,8 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="from_name"
+                value={form.from_name}
+                onChange={handleChange}
                 placeholder="Your Name"
                 required="required"
                 tabIndex="1"
@@ -32,6 +86,8 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="sender_email"
+                value={form.sender_email}
+                onChange={handleChange}
                 placeholder="Your Email"
                 tabIndex="2"
                 required="required"
@@ -44,6 +100,8 @@ const Contact = () => {
               <textarea
                 id="message"
                 name="message"
+                value={form.message}
+                onChange={handleChange}
                 placeholder="Please write your message here."
                 tabIndex="5"
                 required="required"
@@ -52,7 +110,7 @@ const Contact = () => {
           </div>
           <div>
             <button name="submit" type="submit" id="submit">
-              SEND
+              {loading ? "SENDING..." : "SEND"}
             </button>
           </div>
         </form>
