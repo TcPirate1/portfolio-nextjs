@@ -108,6 +108,10 @@ const Contact = () => {
               ></textarea>
             </label>
           </div>
+          {/* <div
+            className="g-recaptcha"
+            data-sitekey="6LeDUvwoAAAAACteWZ-6Ptj_5NHpoKLCBByauLRB"
+          ></div> */}
           <div>
             <button name="submit" type="submit" id="submit">
               {loading ? "SENDING..." : "SEND"}
