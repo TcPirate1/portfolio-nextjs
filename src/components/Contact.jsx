@@ -9,30 +9,22 @@ const Contact = () => {
     message: "",
   });
 
-  const [loading, setLoading] = useState(false);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
 
     setTimeout(() => {}, 2000);
     emailjs
-      .send(
+      .sendForm(
         "service_gyqj9s6",
         "template_8ohyoci",
-        {
-          from_name: form.from_name,
-          sender_email: form.sender_email,
-          message: form.message,
-        },
+        formRef.current,
         "9s8UWgGcYff43JhPb"
       )
       .then(
-        setLoading(false),
         (result) => {
           console.log("Success!", result.text, result.status);
           document.getElementById("success").style.display = "block";
@@ -108,13 +100,13 @@ const Contact = () => {
               ></textarea>
             </label>
           </div>
-          {/* <div
+          <div
             className="g-recaptcha"
             data-sitekey="6LeDUvwoAAAAACteWZ-6Ptj_5NHpoKLCBByauLRB"
-          ></div> */}
+          ></div>
           <div>
             <button name="submit" type="submit" id="submit">
-              {loading ? "SENDING..." : "SEND"}
+              SEND
             </button>
           </div>
         </form>
