@@ -67,7 +67,6 @@ const Contact = () => {
                 placeholder="Your Name"
                 required="required"
                 tabIndex="1"
-                autoFocus={true}
               />
             </label>
           </div>
