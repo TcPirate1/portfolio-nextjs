@@ -1,5 +1,6 @@
 import { languages_libraries_frameworks } from "./languages_libraries_frameworks";
 import { random_keyID } from "./random_keyID.js";
+import Image from "next/image";
 
 const Skills = () => {
   return (
@@ -19,7 +20,13 @@ const Skills = () => {
           <p>JavaScript</p>
         </div>
         <div className="skill-card nextjs">
-          <img className="nextjs" src="/next-js.svg"></img>
+          <Image
+            className="nextjs"
+            src="/next-js.svg"
+            alt="nextjs"
+            width="35"
+            height="35"
+          ></Image>
           <p>NextJS</p>
         </div>
         {languages_libraries_frameworks.map((item) => {
@@ -36,7 +43,7 @@ const Skills = () => {
           );
         })}
         <div className="skill-card c#">
-          <img
+          <Image
             className="c#"
             src="/csharp-original.svg"
             alt="csharp"
@@ -46,7 +53,7 @@ const Skills = () => {
           <p>C#</p>
         </div>
         <div className="skill-card mysql">
-          <img
+          <Image
             className="mysql"
             src="/mysql.svg"
             alt="mysql"
@@ -56,7 +63,7 @@ const Skills = () => {
           <p>MySql</p>
         </div>
         <div className="skill-card mongodb">
-          <img
+          <Image
             className="mongodb"
             src="/mongodb.svg"
             alt="mongodb"
