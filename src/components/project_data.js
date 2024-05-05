@@ -6,6 +6,12 @@ const projectData = [
     link: "https://youtu.be/JbZzsTftdrw",
   },
   {
+    title: "Avalonia GUI for Card Searcher",
+    description:
+      "A GUI interface for the Card Searcher program. This removes the dependency on Excel spreadsheets and uses MongoDB to store information. Is still Work in Progress.",
+    link: "https://github.com/TcPirate1/FF_collection_GUI",
+  },
+  {
     title: "Card Searcher",
     description:
       "A terminal program designed to search through an excel file for a particular card when its card code or name is entered. This was done with a Python library called Openpyxl and has limited editing capabilities.",
