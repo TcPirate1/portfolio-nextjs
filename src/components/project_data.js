@@ -1,5 +1,11 @@
 const projectData = [
   {
+    title: "Django - Card website",
+    description:
+      "Round 2 of doing a full-stack website for a card game but the frontend and backend is completely in Django.",
+    link: "https://github.com/TcPirate1/UVS_mha"
+  },
+  {
     title: "Card database website",
     description:
       'A website built with Next.js, Node.js and MongoDB. This website started as a website for the "MHA" card game where users could register and login, search the database for cards and build their decks, however within a few weeks we had to scale-down our project to meet the deadline. This meant the website is now only a card database with a search function and login functionalities.',
