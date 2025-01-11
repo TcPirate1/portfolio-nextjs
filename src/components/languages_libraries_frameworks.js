@@ -1,9 +1,24 @@
 export const languages_libraries_frameworks = [
   {
+    name: "HTML5",
+  },
+  {
+    name: "CSS3",
+  },
+  {
+    name: "JavaScript",
+  },
+  {
     name: "React",
   },
   {
-    name: "Node",
+    name: "NextJS",
+  },
+  {
+    name: "Nodejs",
+  },
+  {
+    name: "npm",
   },
   {
     name: "php",
@@ -11,4 +26,22 @@ export const languages_libraries_frameworks = [
   {
     name: "Python",
   },
+  {
+    name: "C#",
+  },
+  {
+    name: ".NET",
+  },
+  {
+    name: "MySql",
+  },
+  {
+    name: "MongoDB",
+  },
+  {
+    name: "Kotlin",
+  },
 ];
+
+// Same name template: npm
+// dotnet diff from everyone
