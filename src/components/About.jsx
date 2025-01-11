@@ -29,12 +29,10 @@ const About = () => {
             ways to mess with my Linux system.
             <br />
             <u>My favourite shows are:</u>
-            <ul>
-              {fav_shows.map((shows, index) => (
-                <li key={index}>- {shows.name}</li>
-              ))}
-            </ul>
           </p>
+          {fav_shows.map((shows, index) => (
+            <li key={index}>- {shows.name}</li>
+          ))}
           <p>
             Throughout my studies, I have been challenged to use a variety of
             languages and frameworks/libraries associated with the language and
@@ -43,9 +41,10 @@ const About = () => {
             <br />
             This ranged from static and dynamic websites to terminal programs
             and mobile apps and am excited to continue learning.
-            <br />I have also been able to work in a team environment and have been able to
-            use version control systems such as Git and GitHub and experience
-            with Kanban Boards and Jira to collaborate with my team members.
+            <br />I have also been able to work in a team environment and have
+            been able to use version control systems such as Git and GitHub and
+            experience with Kanban Boards and Jira to collaborate with my team
+            members.
           </p>
         </div>
         <div className="about-img">
