@@ -1,69 +1,55 @@
 import { languages_libraries_frameworks } from "./languages_libraries_frameworks";
 import { random_keyID } from "./random_keyID.js";
-import Image from "next/image";
 
 const Skills = () => {
   return (
     <div className="skills-container">
       <h2>Skills</h2>
       <div className="grid-skills">
-        <div className="skill-card js">
-          <i className="fa-brands fa-js-square js-icon"></i>
-          <p>JavaScript</p>
-        </div>
-        <div className="skill-card nextjs">
-          <Image
-            className="nextjs"
-            src="/next-js.svg"
-            alt="nextjs"
-            width="35"
-            height="35"
-          ></Image>
-          <p>NextJS</p>
-        </div>
         {languages_libraries_frameworks.map((item) => {
+
+          if (item.name.toLowerCase() === "c#")
+            return (
+              <div
+                key={random_keyID()}
+                className={`skill-card ${item.name.toLowerCase()}`}
+              >
+                <i className={`devicon-csharp-plain`}></i>
+                <p>{item.name}</p>
+              </div>
+            );
+          else if (item.name.toLowerCase() === '.net')
+            return (
+          <div
+                key={random_keyID()}
+                className={`skill-card ${item.name.toLowerCase()}`}
+              >
+                <i className={`devicon-dot-net-plain-wordmark`}></i>
+                <p>{item.name}</p>
+              </div>
+          );
+          else if (item.name.toLowerCase() === 'npm')
+            return (
+              <div
+                key={random_keyID()}
+                className={`skill-card ${item.name.toLowerCase()}`}
+              >
+                <i className={`devicon-${item.name.toLowerCase()}-original-wordmark`}></i>
+                <p>{item.name}</p>
+              </div>
+            );
           return (
             <div
               key={random_keyID()}
               className={`skill-card ${item.name.toLowerCase()}`}
             >
               <i
-                className={`fa-brands fa-${item.name.toLowerCase()} ${item.name.toLowerCase()}-icon`}
+                className={`devicon-${item.name.toLowerCase()}-plain`}
               ></i>
               <p>{item.name}</p>
             </div>
           );
         })}
-        <div className="skill-card c#">
-          <Image
-            className="c#"
-            src="/csharp-original.svg"
-            alt="csharp"
-            width="35"
-            height="35"
-          />
-          <p>C#</p>
-        </div>
-        <div className="skill-card mysql">
-          <Image
-            className="mysql"
-            src="/mysql.svg"
-            alt="mysql"
-            width="35"
-            height="35"
-          />
-          <p>MySql</p>
-        </div>
-        <div className="skill-card mongodb">
-          <Image
-            className="mongodb"
-            src="/mongodb.svg"
-            alt="mongodb"
-            width="35"
-            height="35"
-          />
-          <p>MongoDB</p>
-        </div>
       </div>
     </div>
   );

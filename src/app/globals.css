@@ -266,24 +266,28 @@ hr {
   background-color: #e34f26;
 }
 
-.skills-container .grid-skills .css:hover {
+.skills-container .grid-skills .css3:hover {
   background-color: #264de4;
 }
 
-.skills-container .grid-skills .js:hover {
+.skills-container .grid-skills .javascript:hover {
   background-color: #f7df1e;
-}
-
-.skills-container .grid-skills .nextjs:hover {
-  background-color: #514545;
 }
 
 .skills-container .grid-skills .react:hover {
   background-color: #61dafb;
 }
 
-.skills-container .grid-skills .node:hover {
+.skills-container .grid-skills .nextjs:hover {
+  background-color: #514545;
+}
+
+.skills-container .grid-skills .nodejs:hover {
   background-color: #339933;
+}
+
+.skills-container .grid-skills .npm:hover {
+  background-color: #ee0a0a;
 }
 
 .skills-container .grid-skills .php:hover {
@@ -298,12 +302,20 @@ hr {
   background-color: #9134b6;
 }
 
+.skills-container .grid-skills .\.net:hover {
+  background-color: #9e40c4;
+}
+
 .skills-container .grid-skills .mysql:hover {
   background-color: #4264ff;
 }
 
 .skills-container .grid-skills .mongodb:hover {
   background-color: #218a4b;
+}
+
+.skills-container .grid-skills .kotlin:hover {
+  background-color: #7427a1;
 }
 
 /* Projects */
