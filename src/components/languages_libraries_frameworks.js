@@ -1,45 +1,48 @@
 export const languages_libraries_frameworks = [
   {
-    name: "HTML5",
+    name: "HTML5"
   },
   {
-    name: "CSS3",
+    name: "CSS3"
   },
   {
-    name: "JavaScript",
+    name: "JavaScript"
   },
   {
-    name: "React",
+    name: "React"
   },
   {
-    name: "NextJS",
+    name: "NextJS"
   },
   {
-    name: "Nodejs",
+    name: "Nodejs"
   },
   {
-    name: "npm",
+    name: "npm"
   },
   {
-    name: "php",
+    name: "php"
   },
   {
-    name: "Python",
+    name: "Python"
   },
   {
-    name: "C#",
+    name: "C#"
   },
   {
-    name: ".NET",
+    name: ".NET"
   },
   {
-    name: "MySql",
+    name: "MySql"
   },
   {
-    name: "MongoDB",
+    name: "MongoDB"
   },
   {
-    name: "Kotlin",
+    name: "Kotlin"
+  },
+  {
+    name: "Swift"
   },
 ];
 
