@@ -318,6 +318,10 @@ hr {
   background-color: #7427a1;
 }
 
+.skills-container .grid-skills .swift:hover {
+  background-color: rgb(223, 31, 31);
+}
+
 /* Projects */
 .projects-container {
   padding: 2rem 0;
