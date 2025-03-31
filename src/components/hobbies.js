@@ -1,17 +1,20 @@
 export const hobbies = [
   {
-    name: "video games",
+    name: "Video games",
   },
   {
-    name: "card games",
+    name: "Card games",
   },
   {
-    name: "gyming",
+    name: "Gyming",
   },
   {
-    name: "reading",
+    name: "Reading",
   },
   {
-    name: "drawing",
+    name: "Drawing",
+  },
+  {
+    name: "Anime"
   },
 ];

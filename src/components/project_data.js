@@ -1,26 +1,20 @@
 const projectData = [
   {
-    title: "Django - Card website",
-    description:
-      "Round 2 of doing a full-stack website for a card game but the frontend and backend is completely in Django.",
-    link: "https://github.com/TcPirate1/UVS_mha"
-  },
-  {
     title: "Card database website",
     description:
-      'A website built with Next.js, Node.js and MongoDB. This website started as a website for the "MHA" card game where users could register and login, search the database for cards and build their decks, however within a few weeks we had to scale-down our project to meet the deadline. This meant the website is now only a card database with a search function and login functionalities.',
+      'A website built with Next.js, Node.js and MongoDB. Started as a website for the "MHA" card game where users could register and login, search the database for cards and build their decks, however within a few weeks we had to scale-down our project to meet the deadline. This meant the website is now only a card database with a search function and login functionalities.',
     link: "https://youtu.be/JbZzsTftdrw",
   },
   {
     title: "Avalonia GUI for Card Searcher",
     description:
-      "A GUI interface for the Card Searcher program. This removes the dependency on Excel spreadsheets and uses MongoDB to store information. Is still Work in Progress.",
+      "A GUI interface for the Card Searcher program. This removes the dependency on Excel spreadsheets and uses MongoDB to store information. Work in Progress.",
     link: "https://github.com/TcPirate1/FF_collection_GUI",
   },
   {
     title: "Card Searcher",
     description:
-      "A terminal program designed to search through an excel file for a particular card when its card code or name is entered. This was done with a Python library called Openpyxl and has limited editing capabilities.",
+      "A terminal program designed to search through an excel file for a card based on its card code or name. This was done with a Python library called Openpyxl and has limited editing capabilities.",
     link: "https://github.com/TcPirate1/Excel_Searcher-Python",
   },
   {
