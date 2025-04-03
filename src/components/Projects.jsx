@@ -1,5 +1,7 @@
+"use client";
 import projectData from "./project_data.js";
 import { random_keyID } from "./random_keyID.js";
+import { useState } from "react";
 
 const Projects = () => {
 
