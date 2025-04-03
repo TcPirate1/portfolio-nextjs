@@ -1,35 +1,34 @@
 const projectData = [
   {
+    id: 1,
     title: "Card database website",
     description:
       'A website built with Next.js, Node.js and MongoDB. Started as a website for the "MHA" card game where users could register and login, search the database for cards and build their decks, however within a few weeks we had to scale-down our project to meet the deadline. This meant the website is now only a card database with a search function and login functionalities.',
     link: "https://youtu.be/JbZzsTftdrw",
   },
   {
+    id: 2,
     title: "Avalonia GUI for Card Searcher",
     description:
       "A GUI interface for the Card Searcher program. This removes the dependency on Excel spreadsheets and uses MongoDB to store information. Work in Progress.",
     link: "https://github.com/TcPirate1/FF_collection_GUI",
   },
   {
-    title: "Card Searcher",
+    id: 3,
+    title: "CLI Card Searcher",
     description:
       "A terminal program designed to search through an excel file for a card based on its card code or name. This was done with a Python library called Openpyxl and has limited editing capabilities.",
     link: "https://github.com/TcPirate1/Excel_Searcher-Python",
   },
   {
-    title: "C# Console card searcher",
-    description:
-      "A C# version of the aforementioned \"Card Searcher\". This utilizes MongoDB to store the card's details and allows me to see if I have the card in my collection by entering it's name or card code.",
-    link: "https://github.com/TcPirate1/FFTCG_collection",
-  },
-  {
+    id: 4,
     title: "Django portfolio website",
     description:
-      "Prior to making this website, I created a basic portfolio website using Django and Bootstrap, the main feature of this site was the capability for it to organize, the projects I entered into the SQLite database, into categories without my interference. This was my 2nd time creating a portfolio site and my first time hosting a website live. I used pythonanywhere to host the website.",
+      "Prior to making this website, I created a basic portfolio website using Django and Bootstrap, this site was to organize the projects, entered into the SQLite database, into categories without my interference. This was my 2nd time creating a portfolio site and my first time hosting a website live. I used pythonanywhere to host the website.",
     link: "https://github.com/TcPirate1/Portfolio-Django",
   },
   {
+    id: 5,
     title: "Spotify Playlist Generator",
     description:
       'This is a Python project that uses the Spotify API and Spotipy library to generate 2 different playlists. Calm and Upbeat. This organized my music library into the 2 playlists based on the "dancability" of the song.',

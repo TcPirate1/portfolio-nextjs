@@ -1,7 +1,18 @@
+"use client";
 import projectData from "./project_data.js";
 import { random_keyID } from "./random_keyID.js";
+import { useState } from "react";
 
 const Projects = () => {
+
+  const [isVisible, setIsVisible] = useState({});
+
+const toggleVisibility = (projID) => {
+  setIsVisible((prevState) => ({
+    ...prevState,
+    [projID]: !prevState[projID]
+  }));
+};
   function youtubeLink(link) {
     const youtubeRegex = new RegExp(
       "https://youtu.be/[a-zA-Z0-9_-]{11}|https://www.youtube.com/watch?v=[a-zA-Z0-9_-]{11}"
@@ -30,7 +41,23 @@ const Projects = () => {
                 </div>
               </div>
               <h3>{project.title}</h3>
-              <p>{project.description}</p>
+              <button
+                onClick={() => toggleVisibility(project.id)}
+                style={{
+                  cursor: "pointer",
+                  border: "none",
+                  background: "transparent",
+                }}
+              >
+                <br/>
+                <i className={`fa-solid ${isVisible[project.id] ? "fa-arrow-right" : "fa-arrow-down"} fa-inverse fa-xl`} style={{ marginRight: "1em" }}></i>
+                {isVisible[project.id] ? (
+                  <span style={{ color: "white" }}>Collapse</span>
+                  ) : (
+                    <span style={{ color: "white" }}>Expand me</span>
+                  )}
+              </button>
+              {isVisible[project.id] && <p><br/>{project.description}</p>}
             </div>
           ))}
       </div>
