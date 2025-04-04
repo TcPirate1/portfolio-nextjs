@@ -42,10 +42,21 @@ const Hero = ({
           })}
         </div>
       </div>
-      <button onClick={scrollToAbout}>About Me</button>
-      <button onClick={scrollToSkills}>Skills</button>
-      <button onClick={scrollToProjects}>Projects</button>
-      <button onClick={scrollToContact}>Contact</button>
+      <h2>
+        <u>Table of contents:</u>
+      </h2>
+      <button onClick={scrollToAbout} className="hero-button">
+        - About Me
+      </button>
+      <button onClick={scrollToSkills} className="hero-button">
+        - Skills
+      </button>
+      <button onClick={scrollToProjects} className="hero-button">
+        - Projects
+      </button>
+      <button onClick={scrollToContact} className="hero-button">
+        - Contact
+      </button>
     </div>
   );
 };
