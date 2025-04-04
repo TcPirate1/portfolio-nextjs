@@ -18,7 +18,7 @@ const Hero = ({
         alt="Terence&#39;s headshot"
       />
       <div className="hero-text">
-        <h1>Hey, I&#39;m Terence Chen AKA TC 👋</h1>
+        <h1>I&#39;m Terence Chen AKA TC 👋</h1>
         <p>
           I&#39;m a software developer student based in Christchurch, New
           Zealand, graduated from Whitecliffe. You can find me on various social
@@ -41,22 +41,10 @@ const Hero = ({
             );
           })}
         </div>
+        <p>
+          You can find out more about me <a onClick={scrollToAbout}>here</a>, or to find out my <a onClick={scrollToSkills}>skills</a> or what <a onClick={scrollToProjects}>projects</a> I've done!
+        </p>
       </div>
-      <h2>
-        <u>Table of contents:</u>
-      </h2>
-      <button onClick={scrollToAbout} className="hero-button">
-        - About Me
-      </button>
-      <button onClick={scrollToSkills} className="hero-button">
-        - Skills
-      </button>
-      <button onClick={scrollToProjects} className="hero-button">
-        - Projects
-      </button>
-      <button onClick={scrollToContact} className="hero-button">
-        - Contact
-      </button>
     </div>
   );
 };

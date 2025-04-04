@@ -111,17 +111,13 @@ hr {
   padding: 2rem 0;
 }
 
-.hero-container .hero-button {
-  margin: 0.5em;
-  color: whitesmoke;
-  font-size: 1em;
+.hero-container a {
+  color: lightblue;
   cursor: pointer;
-  border: none;
-  background: transparent;
   transition: all 0.5s ease-in-out;
 }
 
-.hero-container .hero-button:hover {
+.hero-container a:hover {
   color: purple;
 }
 
