@@ -3,8 +3,9 @@ import projectData from "./project_data.js";
 import { random_keyID } from "./random_keyID.js";
 import { useState } from "react";
 import Image from "next/image.js";
+import { forwardRef } from "react";
 
-const Projects = () => {
+const Projects = forwardRef((props, ref) => {
 
   const [isVisible, setIsVisible] = useState({});
 
@@ -22,7 +23,7 @@ const toggleVisibility = (projID) => {
   }
   return (
     <div className="projects-container">
-      <h2>Projects</h2>
+      <h2 ref={ref}>Projects</h2>
       <div className="projects-grid">
         {projectData &&
           projectData.map((project) => (
@@ -82,6 +83,6 @@ const toggleVisibility = (projID) => {
       </div>
     </div>
   );
-};
+});
 
 export default Projects;
