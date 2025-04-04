@@ -1,4 +1,3 @@
-'use client'
 import Image from "next/image";
 import { hobbies } from "./hobbies";
 import { fav_shows } from "./favourite_shows";
