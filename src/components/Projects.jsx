@@ -2,6 +2,7 @@
 import projectData from "./project_data.js";
 import { random_keyID } from "./random_keyID.js";
 import { useState } from "react";
+import Image from "next/image.js";
 
 const Projects = () => {
 
@@ -41,6 +42,14 @@ const toggleVisibility = (projID) => {
                 </div>
               </div>
               <h3>{project.title}</h3>
+              <br />
+                <Image
+                  src={`${project.image}`}
+                  height={250}
+                  width={300}
+                  alt={project.title}
+                  unoptimized={`${project.image.toLocaleLowerCase().endsWith("gif") ? true : false}`}
+                />
               <button
                 onClick={() => toggleVisibility(project.id)}
                 style={{
@@ -49,15 +58,25 @@ const toggleVisibility = (projID) => {
                   background: "transparent",
                 }}
               >
-                <br/>
-                <i className={`fa-solid ${isVisible[project.id] ? "fa-arrow-right" : "fa-arrow-down"} fa-inverse fa-xl`} style={{ marginRight: "1em" }}></i>
+                <br />
+                <i
+                  className={`fa-solid ${
+                    isVisible[project.id] ? "fa-arrow-right" : "fa-arrow-down"
+                  } fa-inverse fa-xl`}
+                  style={{ marginRight: "1em" }}
+                ></i>
                 {isVisible[project.id] ? (
                   <span style={{ color: "white" }}>Collapse</span>
-                  ) : (
-                    <span style={{ color: "white" }}>Expand me</span>
-                  )}
+                ) : (
+                  <span style={{ color: "white" }}>Expand me</span>
+                )}
               </button>
-              {isVisible[project.id] && <p><br/>{project.description}</p>}
+              {isVisible[project.id] && (
+                <p>
+                  <br />
+                  {project.description}
+                </p>
+              )}
             </div>
           ))}
       </div>

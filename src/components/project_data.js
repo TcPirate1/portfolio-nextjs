@@ -1,6 +1,7 @@
 const projectData = [
   {
     id: 1,
+    image: "/uvsMhaSite.gif",
     title: "Card database website",
     description:
       'A website built with Next.js, Node.js and MongoDB. Started as a website for the "MHA" card game where users could register and login, search the database for cards and build their decks, however within a few weeks we had to scale-down our project to meet the deadline. This meant the website is now only a card database with a search function and login functionalities.',
@@ -8,6 +9,7 @@ const projectData = [
   },
   {
     id: 2,
+    image: "/Avalonia_FFGUI_HomePage.png",
     title: "Avalonia GUI for Card Searcher",
     description:
       "A GUI interface for the Card Searcher program. This removes the dependency on Excel spreadsheets and uses MongoDB to store information. Work in Progress.",
@@ -15,6 +17,7 @@ const projectData = [
   },
   {
     id: 3,
+    image: "/pythonExcelScript.gif",
     title: "CLI Card Searcher",
     description:
       "A terminal program designed to search through an excel file for a card based on its card code or name. This was done with a Python library called Openpyxl and has limited editing capabilities.",
@@ -22,6 +25,7 @@ const projectData = [
   },
   {
     id: 4,
+    image: "/pythonSpotify.gif",
     title: "Spotify Playlist Generator",
     description:
       'This is a Python project that uses the Spotify API and Spotipy library to generate 2 different playlists. Calm and Upbeat. This organized my music library into the 2 playlists based on the "dancability" of the song.',
