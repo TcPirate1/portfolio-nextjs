@@ -1,10 +1,11 @@
 import { languages_libraries_frameworks } from "./languages_libraries_frameworks";
 import { random_keyID } from "./random_keyID.js";
+import { forwardRef } from "react";
 
-const Skills = () => {
+const Skills = forwardRef((props, ref) => {
   return (
     <div className="skills-container">
-      <h2>Skills</h2>
+      <h2 ref={ref}>Skills</h2>
       <div className="grid-skills">
         {languages_libraries_frameworks.map((item) => {
 
@@ -53,6 +54,6 @@ const Skills = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Skills;

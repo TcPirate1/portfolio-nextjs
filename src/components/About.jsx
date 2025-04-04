@@ -1,13 +1,12 @@
-'use client'
 import Image from "next/image";
 import { hobbies } from "./hobbies";
 import { fav_shows } from "./favourite_shows";
+import { forwardRef } from "react";
 
-const About = () => {
-
+const About = forwardRef((props, ref) => {
   return (
     <div className="about-container">
-      <h2>About Me</h2>
+      <h2 ref={ref}>About Me</h2>
       <div className="flex-about">
         <div className="about-text">
           <p>
@@ -23,16 +22,20 @@ const About = () => {
             seeing what this can lead to!
           </p>
           <u>My hobbies:</u>
-          {hobbies.map((hobby, index) => (
-            <li key={index}>- {hobby.name}</li>
-          ))}
+          <ul>
+            {hobbies.map((hobby, index) => (
+              <li key={index}>- {hobby.name}</li>
+            ))}
+          </ul>
           <p>
             <br />
             <u>My favourite shows are:</u>
           </p>
-          {fav_shows.map((shows, index) => (
-            <li key={index}>- {shows.name}</li>
-          ))}
+          <ul>
+            {fav_shows.map((show, index) => (
+              <li key={index}>- {show.name}</li>
+            ))}
+          </ul>
         </div>
         <div className="about-img">
           <Image
@@ -46,6 +49,6 @@ const About = () => {
       </div>
     </div>
   );
-};
+});
 
 export default About;

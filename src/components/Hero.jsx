@@ -2,7 +2,12 @@ import Image from "next/image";
 import { socialLinks } from "./social_links";
 import { random_keyID } from "./random_keyID.js";
 
-const Hero = () => {
+const Hero = ({
+  scrollToAbout,
+  scrollToSkills,
+  scrollToProjects,
+  scrollToContact,
+}) => {
   return (
     <div className="hero-container">
       <Image
@@ -16,8 +21,8 @@ const Hero = () => {
         <h1>Hey, I&#39;m Terence Chen AKA TC 👋</h1>
         <p>
           I&#39;m a software developer student based in Christchurch, New
-          Zealand, graduated from Whitecliffe. You can find me on various social media platforms
-          below.
+          Zealand, graduated from Whitecliffe. You can find me on various social
+          media platforms below.
         </p>
         <div className="social-icons">
           {socialLinks.map((link) => {
@@ -37,6 +42,21 @@ const Hero = () => {
           })}
         </div>
       </div>
+      <h2>
+        <u>Table of contents:</u>
+      </h2>
+      <button onClick={scrollToAbout} className="hero-button">
+        - About Me
+      </button>
+      <button onClick={scrollToSkills} className="hero-button">
+        - Skills
+      </button>
+      <button onClick={scrollToProjects} className="hero-button">
+        - Projects
+      </button>
+      <button onClick={scrollToContact} className="hero-button">
+        - Contact
+      </button>
     </div>
   );
 };
