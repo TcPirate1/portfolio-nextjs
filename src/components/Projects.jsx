@@ -85,4 +85,6 @@ const toggleVisibility = (projID) => {
   );
 });
 
+Projects.displayName = "Projects";
+
 export default Projects;
