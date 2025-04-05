@@ -29,13 +29,14 @@ const About = forwardRef((props, ref) => {
           </ul>
           <p>
             <br />
-            <u>My favourite shows are:</u>
+            <u>My favourite shows/movies are:</u>
           </p>
           <ul>
             {fav_shows.map((show, index) => (
               <li key={index}>- {show.name}</li>
             ))}
           </ul>
+          <br/>
         </div>
         <div className="about-img">
           <Image

@@ -20,4 +20,10 @@ export const fav_shows = [
     {
         name: "Stein's Gate"
     },
+    {
+        name: "Arcane"
+    },
+    {
+        name: "The Platform"
+    },
 ]

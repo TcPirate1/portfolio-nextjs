@@ -43,8 +43,9 @@ const Hero = ({
         </div>
         <p>
           You can find out more about me <a onClick={scrollToAbout}>here</a>, or
-          to find out my <a onClick={scrollToSkills}>skills</a> or what{" "}
-          <a onClick={scrollToProjects}>projects</a> I&#39;ve done!
+          to find out my skills <a onClick={scrollToSkills}>here</a> or what{" "}
+          projects I&#39;ve done <a onClick={scrollToProjects}>here</a>!{" "}
+          I also have a <a onClick={scrollToContact}>contact form</a>!
         </p>
       </div>
     </div>
