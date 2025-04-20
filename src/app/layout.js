@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Script from "next/script";
 
 export const metadata = {
   title: "TC's Portfolio",
@@ -26,17 +27,18 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
-        <script
+        <Script
           type="text/javascript"
           src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
           async
           defer
-        ></script>
-        <script
+          />
+        <Script
           src="https://www.google.com/recaptcha/api.js"
+          strategy="afterInteractive"
           async
           defer
-        ></script>
+          />
       </head>
       <body>
         <Navbar />
