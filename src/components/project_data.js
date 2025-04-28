@@ -1,5 +1,11 @@
 const projectData = [
   {
+    id: 0,
+    image: "/news_aggregator_website.gif",
+    title: "News Aggregator",
+    link: "https://github.com/TcPirate1/Newsly",
+  },
+  {
     id: 1,
     image: "/uvsMhaSite.gif",
     title: "Card database website",
