@@ -3,6 +3,7 @@ const projectData = [
     id: 0,
     image: "/news_aggregator_website.gif",
     title: "News Aggregator",
+    description: 'News aggregate website using NextJS',
     link: "https://github.com/TcPirate1/Newsly",
   },
   {
