@@ -3,7 +3,8 @@ const projectData = [
     id: 0,
     image: "/news_aggregator_website.gif",
     title: "News Aggregator",
-    description: 'News aggregate website using NextJS',
+    description:
+    'News aggregate website using NextJS. Uses RSS to get and display links to articles on a page, can also search for specific types of feeds. In future this maybe extended to being able to display the actual article in their own page.',
     link: "https://github.com/TcPirate1/Newsly",
   },
   {

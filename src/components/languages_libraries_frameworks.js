@@ -44,6 +44,9 @@ export const languages_libraries_frameworks = [
   {
     name: "Swift"
   },
+  {
+    name: "Bash"
+  },
 ];
 
 // Same name template: npm
