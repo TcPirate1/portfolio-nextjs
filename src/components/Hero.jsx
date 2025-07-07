@@ -1,13 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import { socialLinks } from "./component_data/social_links";
 import { random_keyID } from "./component_data/random_keyID";
 
-const Hero = ({
-  scrollToAbout,
-  scrollToSkills,
-  scrollToProjects,
-  scrollToContact,
-}) => {
+const Hero = () => {
   return (
     <div className="hero-container">
       <Image
@@ -42,10 +38,10 @@ const Hero = ({
           })}
         </div>
         <p>
-          You can find out more about me <a onClick={scrollToAbout}>here</a>, or
-          to find out my skills <a onClick={scrollToSkills}>here</a> or what{" "}
-          projects I&#39;ve done <a onClick={scrollToProjects}>here</a>!{" "}
-          I also have a <a onClick={scrollToContact}>contact form</a>!
+          You can find out more about me <Link href="#About" >here</Link>, or
+          to find out my skills <Link href="#Skills" >here</Link> or what{" "}
+          projects I&#39;ve done <Link href="#Projects" >here</Link>!{" "}
+          I also have a <Link href="#Contact" >contact form</Link>!
         </p>
       </div>
     </div>
