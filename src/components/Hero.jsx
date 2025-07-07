@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { socialLinks } from "./social_links";
-import { random_keyID } from "./random_keyID.js";
+import { socialLinks } from "./component_data/social_links";
+import { random_keyID } from "./component_data/random_keyID";
 
 const Hero = ({
   scrollToAbout,

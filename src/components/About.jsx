@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { hobbies } from "./hobbies";
-import { fav_shows } from "./favourite_shows";
+import { hobbies } from "./component_data/hobbies";
+import { fav_shows } from "./component_data/favourite_shows";
 import { forwardRef } from "react";
 
 const About = forwardRef((props, ref) => {

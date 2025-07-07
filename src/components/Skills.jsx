@@ -1,5 +1,5 @@
-import { languages_libraries_frameworks } from "./languages_libraries_frameworks";
-import { random_keyID } from "./random_keyID.js";
+import { languages_libraries_frameworks } from "./component_data/languages_libraries_frameworks";
+import { random_keyID } from "./component_data/random_keyID";
 import { forwardRef } from "react";
 
 const Skills = forwardRef((props, ref) => {
