@@ -1,12 +1,11 @@
 import Image from "next/image";
-import { hobbies } from "./hobbies";
-import { fav_shows } from "./favourite_shows";
-import { forwardRef } from "react";
+import { hobbies } from "./component_data/hobbies";
+import { fav_shows } from "./component_data/favourite_shows";
 
-const About = forwardRef((props, ref) => {
+const About = () => {
   return (
     <div className="about-container">
-      <h2 ref={ref}>About Me</h2>
+      <h2 id="About">About Me</h2>
       <div className="flex-about">
         <div className="about-text">
           <p>
@@ -50,7 +49,7 @@ const About = forwardRef((props, ref) => {
       </div>
     </div>
   );
-});
+};
 
 About.displayName = "About";
 

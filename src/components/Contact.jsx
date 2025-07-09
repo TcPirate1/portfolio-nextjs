@@ -1,7 +1,7 @@
 "use client";
-import { useState, useRef, forwardRef } from "react";
+import { useState, useRef } from "react";
 
-const Contact = forwardRef((props, ref) => {
+const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
     from_name: "",
@@ -47,7 +47,7 @@ const Contact = forwardRef((props, ref) => {
     <div className="contact-container">
       <div id="contact-form">
         <div>
-          <h1 ref={ref}>Nice to Meet You!</h1>
+          <h1 id="Contact">Nice to Meet You!</h1>
           <h4>Have a question or just want to get in touch? Let&#39;s chat!</h4>
         </div>
         <p id="failure">Oopsie...message not sent.</p>
@@ -112,7 +112,7 @@ const Contact = forwardRef((props, ref) => {
       </div>
     </div>
   );
-});
+};
 
 Contact.displayName = "Contact";
 
