@@ -40,7 +40,7 @@ const About = () => {
         <div className="about-img">
           <Image
             alt="Gurren Lagann Comic"
-            src="/gurren_lagann_comic.jpg"
+            src="/gurren_lagann_comic.webp"
             className="profile-img"
             width={300}
             height={500}
