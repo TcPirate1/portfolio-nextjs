@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: https://docs.google.com/document/d/1Zc8H68AbxdvvOT3dOLtYWYYkKmHn9I2PPiGwvmVeANs/edit?usp=sharing
+Allow: /
+Sitemap: https://terences-portfolio.vercel.app/
