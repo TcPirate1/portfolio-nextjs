@@ -48,7 +48,6 @@ const toggleVisibility = (projID) => {
                   height={250}
                   width={300}
                   alt={project.title}
-                  unoptimized={`${project.image.toLocaleLowerCase().endsWith("gif") ? true : false}`}
                 />
               <button
                 onClick={() => toggleVisibility(project.id)}
