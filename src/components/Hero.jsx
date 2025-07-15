@@ -11,7 +11,8 @@ const Hero = () => {
         className="profile-img"
         width={300}
         height={300}
-        sizes="100vw, 50vw, 33vw"
+        loading="lazy"
+        sizes="(max-width: 750px) 100vw, 50vw, 33vw"
         alt="Terence&#39;s headshot"
       />
       <div className="hero-text">

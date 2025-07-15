@@ -4,6 +4,7 @@ import Image from 'next/image';
 const roboto = Roboto({
   subsets: ['latin'],
     weight: ['400', '700'],
+    display: 'swap'
 });
 
 export default function Loading() {

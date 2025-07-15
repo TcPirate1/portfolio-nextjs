@@ -44,7 +44,7 @@ const About = () => {
             className="profile-img"
             width={300}
             height={500}
-            sizes="100vw, 50vw, 33vw"
+            sizes="(max-width: 750px) 100vw, 50vw, 33vw"
           />
         </div>
       </div>
