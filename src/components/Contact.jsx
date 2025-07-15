@@ -101,8 +101,7 @@ const Contact = () => {
           </div>
           <div
             className="g-recaptcha"
-            data-sitekey="6LeDUvwoAAAAACteWZ-6Ptj_5NHpoKLCBByauLRB"
-          ></div>
+            data-sitekey="6LeDUvwoAAAAACteWZ-6Ptj_5NHpoKLCBByauLRB"/>
           <div>
             <button name="submit" type="submit" id="submit">
               SEND

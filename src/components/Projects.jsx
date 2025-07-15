@@ -1,7 +1,7 @@
 "use client";
 import projectData from "./component_data/project_data";
 import { random_keyID } from "./component_data/random_keyID";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image.js";
 
 const Projects = () => {
@@ -20,6 +20,7 @@ const toggleVisibility = (projID) => {
     );
     return youtubeRegex.test(link);
   }
+
   return (
     <div className="projects-container">
       <h2 id="Projects">Projects</h2>
@@ -47,7 +48,9 @@ const toggleVisibility = (projID) => {
                   src={`${project.image}`}
                   height={250}
                   width={300}
-                  sizes="100vw, 50vw, 33vw"
+                  sizes="(max-width: 750px) 100vw, 50vw, 33vw"
+                  loading="lazy"
+                  unoptimized={project.title === "Avalonia GUI for Card Searcher" ? (false) : (true)}
                   alt={project.title}
                 />
               <button
