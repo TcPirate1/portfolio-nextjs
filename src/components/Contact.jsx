@@ -1,47 +1,49 @@
 "use client";
 import { useState, useRef } from "react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const Contact = () => {
-  const formRef = useRef();
-  const [form, setForm] = useState({
-    from_name: "",
-    sender_email: "",
-    message: "",
+  const captchaRef = useRef(null);
+  const [captchaToken, setCaptchaToken] = useState(null);
+
+  function onVerify(t) {
+    setCaptchaToken(t);
+  }
+
+  function onExpire() {
+    setCaptchaToken(null);
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (!captchaToken) {
+      alert('Complete the captcha');
+      return;
+    }
+
+  const { from_name, sender_email, message } = e.target;
+  const res = await fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      name: from_name.value,
+      email: sender_email.value,
+      message: message.value,
+      captchaToken
+    }),
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const data = await res.json();
+  if (res.ok) {
+    alert('Message sent!');
+  }
+  else {
+    alert(`Error: ${data.message}`);
+  }
 
-    setTimeout(() => {}, 2000);
-    emailjs
-      .sendForm(
-        "service_gyqj9s6",
-        "template_8ohyoci",
-        formRef.current,
-        "9s8UWgGcYff43JhPb"
-      )
-      .then(
-        (result) => {
-          console.log("Success!", result.text, result.status);
-          document.getElementById("success").style.display = "block";
-          document.getElementById("failure").style.display = "none";
-          setForm({
-            from_name: "",
-            sender_email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          console.log("Failed", error.text);
-          document.getElementById("failure").style.display = "block";
-          document.getElementById("success").style.display = "none";
-        }
-      );
-  };
+  captchaRef.current.resetCaptcha();
+  setCaptchaToken(null);
+}
 
   return (
     <div className="contact-container">
@@ -50,10 +52,8 @@ const Contact = () => {
           <h1 id="Contact">Nice to Meet You!</h1>
           <h4>Have a question or just want to get in touch? Let&#39;s chat!</h4>
         </div>
-        <p id="failure">Oopsie...message not sent.</p>
-        <p id="success">Your message was sent successfully. Thank you!</p>
 
-        <form ref={formRef} onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <input type="hidden" name="number" />
           <div>
             <label htmlFor="name">
@@ -62,8 +62,6 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="from_name"
-                value={form.from_name}
-                onChange={handleChange}
                 placeholder="Your Name"
                 required="required"
                 tabIndex="1"
@@ -77,8 +75,6 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="sender_email"
-                value={form.sender_email}
-                onChange={handleChange}
                 placeholder="Your Email"
                 tabIndex="2"
                 required="required"
@@ -91,17 +87,17 @@ const Contact = () => {
               <textarea
                 id="message"
                 name="message"
-                value={form.message}
-                onChange={handleChange}
                 placeholder="Please write your message here."
                 tabIndex="5"
                 required="required"
               ></textarea>
             </label>
           </div>
-          <div
-            className="g-recaptcha"
-            data-sitekey="6LeDUvwoAAAAACteWZ-6Ptj_5NHpoKLCBByauLRB"/>
+          <HCaptcha
+          sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY}
+          onVerify={onVerify}
+          onExpire={onExpire}
+          ref={captchaRef}/>
           <div>
             <button name="submit" type="submit" id="submit">
               SEND
