@@ -14,9 +14,16 @@ const Contact = () => {
     setCaptchaToken(null);
   }
 
+  function onError(err) {
+    console.error('Hcaptcha error:', err);
+    alert('Please try again.');
+  };
+
   async function handleSubmit(e) {
     e.preventDefault();
+    console.log(`Checking token: ${captchaToken}`);
     if (!captchaToken) {
+      captchaRef.current.execute();
       alert('Complete the captcha');
       return;
     }
@@ -97,6 +104,7 @@ const Contact = () => {
           sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY}
           onVerify={onVerify}
           onExpire={onExpire}
+          onError={onError}
           ref={captchaRef}/>
           <div>
             <button name="submit" type="submit" id="submit">
