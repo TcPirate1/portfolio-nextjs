@@ -16,14 +16,12 @@ const Contact = () => {
 
   function onError(err) {
     console.error('Hcaptcha error:', err);
-    alert('Please try again.');
   };
 
   async function handleSubmit(e) {
     e.preventDefault();
     console.log(`Checking token: ${captchaToken}`);
     if (!captchaToken) {
-      captchaRef.current.execute();
       alert('Complete the captcha');
       return;
     }

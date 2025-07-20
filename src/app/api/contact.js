@@ -15,12 +15,17 @@ export async function POST(req) {
     }
 
     const transporter = nodemailer.createTransport({
-        host: 'smtp.protonmail.ch',
-        port: 587,
-        secure: true
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+            type: "OAuth2",
+            user: process.env.RECEIVE_EMAIL
+        },
     });
 
     try {
+        console.log(`Verifying connection: ${await transporter.verify()}`);
         await transporter.sendMail({
             from: email,
             to: process.env.RECEIVE_EMAIL,
