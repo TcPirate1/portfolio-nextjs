@@ -1,10 +1,15 @@
 "use client";
 import { useState, useRef } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { useFormStatus } from "react-dom";
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
+import { EmailNotification } from "../components/component_data/email_template";
 
 const Contact = () => {
   const captchaRef = useRef(null);
   const [captchaToken, setCaptchaToken] = useState(null);
+  const { isPending } = useFormStatus();
 
   function onVerify(t) {
     setCaptchaToken(t);
@@ -18,37 +23,44 @@ const Contact = () => {
     console.error('Hcaptcha error:', err);
   };
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    console.log(`Checking token: ${captchaToken}`);
-    if (!captchaToken) {
-      alert('Complete the captcha');
-      return;
+  async function handleSubmit(formData) {
+    "use server";
+
+    const name = formData.get("from_name");
+    const email = formData.get("sender_email");
+    const message = formData.get("message");
+    const token = formData.get("captchaToken");
+
+    const res = await fetchh("https://api.hcaptcha.com/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        secret: process.env.HCAPTCHA_SECRET,
+        response: captchaToken,
+      })
+    });
+
+    const result = await res.json();
+    if (!result.success) {
+      return NextResponse.json({
+        message: 'Captcha failed',
+        errors: result['error-codes']
+      }, { status:401 });
     }
 
-  const { from_name, sender_email, message } = e.target;
-  const res = await fetch('/api/contact', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      name: from_name.value,
-      email: sender_email.value,
-      message: message.value,
-      captchaToken
-    }),
-  });
+    const resend = new Resend(process.env.RESEND_APIKEY);
+    await resend.emails.send({
+      from: `${email}`,
+      to: [process.env.RECEIVE_EMAIL],
+      subject: `New message from ${name}`,
+      react: <EmailNotification name={name} email={email} message={message} />,
+      replyTo: email,
+    });
 
-  const data = await res.json();
-  if (res.ok) {
-    alert('Message sent!');
-  }
-  else {
-    alert(`Error: ${data.message}`);
-  }
-
-  captchaRef.current.resetCaptcha();
-  setCaptchaToken(null);
-}
+    if (!token) {
+      throw new Error("Captcha token missing");
+    };
+  };
 
   return (
     <div className="contact-container">
@@ -58,7 +70,7 @@ const Contact = () => {
           <h4>Have a question or just want to get in touch? Let&#39;s chat!</h4>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form action={handleSubmit}>
           <input type="hidden" name="number" />
           <div>
             <label htmlFor="name">
