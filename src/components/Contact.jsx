@@ -1,15 +1,15 @@
 "use client";
 import { useState, useRef } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { useFormStatus } from "react-dom";
-import { NextResponse } from "next/server";
-import { Resend } from "resend";
-import { EmailNotification } from "../components/component_data/email_template";
+import { useTransition } from "react";
+import { sendContactEmail } from "@/app/actions/contact";
+
 
 const Contact = () => {
   const captchaRef = useRef(null);
-  const [captchaToken, setCaptchaToken] = useState(null);
-  const { isPending } = useFormStatus();
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [isPending, startTransition] = useTransition();
+  const [error, setError] = useState("");
 
   function onVerify(t) {
     setCaptchaToken(t);
@@ -21,46 +21,7 @@ const Contact = () => {
 
   function onError(err) {
     console.error('Hcaptcha error:', err);
-  };
-
-  async function handleSubmit(formData) {
-    "use server";
-
-    const name = formData.get("from_name");
-    const email = formData.get("sender_email");
-    const message = formData.get("message");
-    const token = formData.get("captchaToken");
-
-    const res = await fetchh("https://api.hcaptcha.com/siteverify", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        secret: process.env.HCAPTCHA_SECRET,
-        response: captchaToken,
-      })
-    });
-
-    const result = await res.json();
-    if (!result.success) {
-      return NextResponse.json({
-        message: 'Captcha failed',
-        errors: result['error-codes']
-      }, { status:401 });
-    }
-
-    const resend = new Resend(process.env.RESEND_APIKEY);
-    await resend.emails.send({
-      from: `${email}`,
-      to: [process.env.RECEIVE_EMAIL],
-      subject: `New message from ${name}`,
-      react: <EmailNotification name={name} email={email} message={message} />,
-      replyTo: email,
-    });
-
-    if (!token) {
-      throw new Error("Captcha token missing");
-    };
-  };
+  }
 
   return (
     <div className="contact-container">
@@ -70,7 +31,7 @@ const Contact = () => {
           <h4>Have a question or just want to get in touch? Let&#39;s chat!</h4>
         </div>
 
-        <form action={handleSubmit}>
+        <form action={sendContactEmail}>
           <input type="hidden" name="number" />
           <div>
             <label htmlFor="name">
@@ -110,16 +71,18 @@ const Contact = () => {
               ></textarea>
             </label>
           </div>
-          <HCaptcha
+          {/* <input type="hidden" name="captchaToken" value={captchaToken} /> */}
+          {/* <HCaptcha
           sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY}
           onVerify={onVerify}
           onExpire={onExpire}
           onError={onError}
-          ref={captchaRef}/>
+          ref={captchaRef}/> */}
           <div>
-            <button name="submit" type="submit" id="submit">
-              SEND
+            <button type="submit" disabled={isPending}>
+              {isPending ? "Sending..." : "Send"}
             </button>
+            {error && <p className="error">{error}</p>}
           </div>
         </form>
       </div>
