@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { sendContactEmail } from "@/app/actions/contact";
+import { sendContactEmail } from "@/app/api/contact";
 
 
 export default function Contact() {
@@ -18,16 +18,26 @@ export default function Contact() {
     setForm({...form, [name]: value });
   };
 
-  const submitHandle = (e) => {
+  const submitHandle = async (e) => {
     e.preventDefault();
-    sendContactEmail
+    const formState = {...form, captchaToken};
+    console.log(`Captcha token: ${captchaToken}`);
+    
+    try {
+      const response = await sendContactEmail(formState);
+      if (response.success) {
+        alert("Message sent!")
+      }
+    } catch (err) {
+      console.error(`Error: ${err}`)
+    };
   };
 
-  function onExpire() {
+  const onExpire = () => {
     setCaptchaToken(null);
   }
 
-  function onError(err) {
+  const onError = (err) => {
     console.error('Hcaptcha error:', err);
   }
 
@@ -85,9 +95,8 @@ export default function Contact() {
               ></textarea>
             </label>
           </div>
-          <input type="hidden" name="captchaToken" value={captchaToken || ""} />
           <HCaptcha
-          sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY}
+          sitekey="10000000-ffff-ffff-ffff-000000000001"
           onVerify={setCaptchaToken}
           onExpire={onExpire}
           onError={onError}

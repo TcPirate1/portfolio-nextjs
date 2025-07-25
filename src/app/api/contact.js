@@ -2,12 +2,9 @@
 import { Resend } from "resend";
 import { EmailNotification } from "../../components/component_data/email_template";
 
-export async function sendContactEmail(formData) {
+export async function sendContactEmail(form) {
 
-    const name = formData.get("from_name");
-    const email = formData.get("sender_email");
-    const message = formData.get("message");
-    const token = formData.get("captchaToken");
+    const { from_name, sender_email, message, token } = form;
 
     if (!token) {
         throw new Error("Captcha token missing");
@@ -17,7 +14,7 @@ export async function sendContactEmail(formData) {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
-        secret: process.env.HCAPTCHA_SECRET,
+        secret: "0x0000000000000000000000000000000000000000",
         response: token,
       })
     });
@@ -32,8 +29,8 @@ export async function sendContactEmail(formData) {
     await resend.emails.send({
       from: `${email}`,
       to: [process.env.RECEIVE_EMAIL],
-      subject: `New message from ${name}`,
-      react: <EmailNotification name={name} email={email} message={message} />,
+      subject: `New message from ${from_name}`,
+      react: <EmailNotification name={from_name} email={sender_email} message={message} />,
     });
   } catch(err) {
     throw new Error(`Failed to send email: ${err}`);
