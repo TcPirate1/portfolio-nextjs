@@ -1,19 +1,27 @@
 "use client";
 import { useState, useRef } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { useTransition } from "react";
 import { sendContactEmail } from "@/app/actions/contact";
 
 
-const Contact = () => {
+export default function Contact() {
   const captchaRef = useRef(null);
-  const [captchaToken, setCaptchaToken] = useState("");
-  const [isPending, startTransition] = useTransition();
-  const [error, setError] = useState("");
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const [form, setForm] = useState({
+    from_name: "",
+    sender_email: "",
+    message: "",
+  });
 
-  function onVerify(t) {
-    setCaptchaToken(t);
-  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({...form, [name]: value });
+  };
+
+  const submitHandle = (e) => {
+    e.preventDefault();
+    sendContactEmail
+  };
 
   function onExpire() {
     setCaptchaToken(null);
@@ -31,7 +39,7 @@ const Contact = () => {
           <h4>Have a question or just want to get in touch? Let&#39;s chat!</h4>
         </div>
 
-        <form action={sendContactEmail}>
+        <form onSubmit={submitHandle}>
           <input type="hidden" name="number" />
           <div>
             <label htmlFor="name">
@@ -40,6 +48,8 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="from_name"
+                value={form.from_name}
+                onChange={handleChange}
                 placeholder="Your Name"
                 required="required"
                 tabIndex="1"
@@ -53,6 +63,8 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="sender_email"
+                value={form.sender_email}
+                onChange={handleChange}
                 placeholder="Your Email"
                 tabIndex="2"
                 required="required"
@@ -65,24 +77,25 @@ const Contact = () => {
               <textarea
                 id="message"
                 name="message"
+                value={form.message}
+                onChange={handleChange}
                 placeholder="Please write your message here."
                 tabIndex="5"
                 required="required"
               ></textarea>
             </label>
           </div>
-          {/* <input type="hidden" name="captchaToken" value={captchaToken} /> */}
-          {/* <HCaptcha
+          <input type="hidden" name="captchaToken" value={captchaToken || ""} />
+          <HCaptcha
           sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY}
-          onVerify={onVerify}
+          onVerify={setCaptchaToken}
           onExpire={onExpire}
           onError={onError}
-          ref={captchaRef}/> */}
+          ref={captchaRef}/>
           <div>
-            <button type="submit" disabled={isPending}>
-              {isPending ? "Sending..." : "Send"}
+            <button type="submit" name="submit" id="submit">
+              SEND
             </button>
-            {error && <p className="error">{error}</p>}
           </div>
         </form>
       </div>
@@ -91,5 +104,3 @@ const Contact = () => {
 };
 
 Contact.displayName = "Contact";
-
-export default Contact;

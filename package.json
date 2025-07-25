@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "email": "email dev --dir src/components/component_data"
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^1.12.0",
@@ -16,11 +17,15 @@
     "next": "^15.3.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-email": "^4.2.4",
     "resend": "^4.7.0",
     "sharp": "^0.34.2",
     "uuid": "^11.1.0"
   },
   "engines": {
     "node": ">=22.x"
+  },
+  "devDependencies": {
+    "@react-email/preview-server": "^4.2.4"
   }
 }

@@ -18,12 +18,14 @@ export const EmailNotification = ({
         You have received an email.
       </Preview>
       <Container style={container}>
-        <Text style={paragraph}>Hi, you just received a message from {name},</Text>
+        <Text style={paragraph}>Hi, you just received a message from {name}.</Text>
         <Text style={paragraph}>
           Their email is {email},
-          This is the message:
-          {message}
         </Text>
+        <Text style={paragraph}>
+          This is their message:
+        </Text>
+        <Text style={paragraph}>{message}</Text>
         <Hr style={hr} />
       </Container>
     </Body>

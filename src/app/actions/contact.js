@@ -1,46 +1,43 @@
 "use server";
 import { Resend } from "resend";
 import { EmailNotification } from "../../components/component_data/email_template";
-import { NextResponse } from "next/server";
 
 export async function sendContactEmail(formData) {
 
-    const jsonData = {
-        name : formData.get("from_name"),
-        email : formData.get("sender_email"),
-        message : formData.get("message"),
-    };
-    // const token = formData.get("captchaToken");
+    const name = formData.get("from_name");
+    const email = formData.get("sender_email");
+    const message = formData.get("message");
+    const token = formData.get("captchaToken");
 
-    // if (!token) {
-    //     throw new Error("Captcha token missing");
-    // }
+    if (!token) {
+        throw new Error("Captcha token missing");
+    }
 
-    // const res = await fetch("https://api.hcaptcha.com/siteverify", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //   body: new URLSearchParams({
-    //     secret: process.env.HCAPTCHA_SECRET,
-    //     response: token,
-    //   })
-    // });
+    const res = await fetch("https://api.hcaptcha.com/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        secret: process.env.HCAPTCHA_SECRET,
+        response: token,
+      })
+    });
 
-    // const result = await res.json();
-    // if (!result.success) {
-    //   return NextResponse.json({
-    //     message: 'Captcha failed',
-    //     errors: result['error-codes']
-    //   }, { status:401 });
-    // }
+    const result = await res.json();
+    if (!result.success) {
+      throw new Error(`Captcha failed: ${result["error-codes"]?.join(", ")}`);
+    }
 
     const resend = new Resend(process.env.RESEND_APIKEY);
+    try {
     await resend.emails.send({
-      from: `${jsonData.email}`,
+      from: `${email}`,
       to: [process.env.RECEIVE_EMAIL],
-      subject: `New message from ${jsonData.name}`,
-      react: <EmailNotification name={jsonData.name} email={jsonData.email} message={jsonData.message} />,
-      replyTo: jsonData.email,
+      subject: `New message from ${name}`,
+      react: <EmailNotification name={name} email={email} message={message} />,
     });
+  } catch(err) {
+    throw new Error(`Failed to send email: ${err}`);
+  }
     
-    return NextResponse.json({ message: 'Email sent!' });
+    return { success: true };
 };
