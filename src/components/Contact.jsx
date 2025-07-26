@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { sendContactEmail } from "@/app/api/contact";
+import { sendContactEmail } from "@/app/api/emails";
 
 
 export default function Contact() {
@@ -21,7 +21,6 @@ export default function Contact() {
   const submitHandle = async (e) => {
     e.preventDefault();
     const formState = {...form, captchaToken};
-    console.log(`Captcha token: ${captchaToken}`);
     
     try {
       const response = await sendContactEmail(formState);
