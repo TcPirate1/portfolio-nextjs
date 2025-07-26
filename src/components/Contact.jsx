@@ -46,7 +46,7 @@ export default function Contact() {
       <div id="contact-form">
         <div>
           <h1 id="Contact">Nice to Meet You!</h1>
-          <h4>Have a question or just want to get in touch? Let&#39;s chat!</h4>
+          <h4>Have a question or just want to get in touch?<br/>Let&#39;s chat!</h4>
         </div>
 
         <form onSubmit={submitHandle}>

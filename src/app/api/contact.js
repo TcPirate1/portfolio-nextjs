@@ -4,9 +4,10 @@ import { EmailNotification } from "../../components/component_data/email_templat
 
 export async function sendContactEmail(form) {
 
-    const { from_name, sender_email, message, token } = form;
+    // Order and naming needs to be the same.
+    const { from_name, sender_email, message, captchaToken } = form;
 
-    if (!token) {
+    if (!captchaToken) {
         throw new Error("Captcha token missing");
     }
 
@@ -15,7 +16,7 @@ export async function sendContactEmail(form) {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
         secret: "0x0000000000000000000000000000000000000000",
-        response: token,
+        response: captchaToken,
       })
     });
 
@@ -27,7 +28,7 @@ export async function sendContactEmail(form) {
     const resend = new Resend(process.env.RESEND_APIKEY);
     try {
     await resend.emails.send({
-      from: `${email}`,
+      from: `${sender_email}`,
       to: [process.env.RECEIVE_EMAIL],
       subject: `New message from ${from_name}`,
       react: <EmailNotification name={from_name} email={sender_email} message={message} />,
