@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser'
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
-  const captchaRef = useRef();
+  const captchaRef = useRef(null);
   const [form, setForm] = useState({
     from_name: "",
     sender_email: "",
