@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import emailjs from '@emailjs/browser'
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
   const formRef = useRef();
@@ -8,12 +9,14 @@ const Contact = () => {
     from_name: "",
     sender_email: "",
     message: "",
+    "g-recaptcha-response": ""
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -34,6 +37,7 @@ const Contact = () => {
             from_name: "",
             sender_email: "",
             message: "",
+            "g-recaptcha-response": ""
           });
         },
         (error) => {
@@ -100,14 +104,14 @@ const Contact = () => {
               ></textarea>
             </label>
           </div>
-          <div
-            className="g-recaptcha"
-            data-sitekey="6LeDUvwoAAAAACteWZ-6Ptj_5NHpoKLCBByauLRB"/>
-          <div>
+          <ReCAPTCHA
+          value ={form["g-recaptcha-response"]}
+          sitekey="6LeDUvwoAAAAACteWZ-6Ptj_5NHpoKLCBByauLRB"
+          onChange={handleChange}
+          />
             <button name="submit" type="submit" id="submit">
               SEND
             </button>
-          </div>
         </form>
       </div>
     </div>
