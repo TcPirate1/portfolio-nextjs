@@ -33,12 +33,12 @@ export default function RootLayout({ children }) {
           async
           defer
           />
-        <Script
+        {/* <Script
           src="https://www.google.com/recaptcha/api.js"
           strategy="afterInteractive"
           async
           defer
-          />
+          /> */}
       </head>
       <body>
         <Navbar />
