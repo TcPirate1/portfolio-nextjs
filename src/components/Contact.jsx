@@ -1,9 +1,10 @@
 "use client";
 import { useState, useRef } from "react";
 import emailjs from '@emailjs/browser'
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
-  const captchaRef = useRef();
+  const captchaRef = useRef<ReCAPTCHA>(null);
   const [form, setForm] = useState({
     from_name: "",
     sender_email: "",
