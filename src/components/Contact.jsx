@@ -22,7 +22,7 @@ const Contact = () => {
 
     setTimeout(() => {}, 2000);
     emailjs
-      .sendForm(
+      .send(
         "service_gyqj9s6",
         "template_8ohyoci",
         formRef.current,
