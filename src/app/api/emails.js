@@ -27,12 +27,17 @@ export async function sendContactEmail(form) {
 
     const resend = new Resend(process.env.RESEND_APIKEY);
     try {
-    await resend.emails.send({
+    const emailRes = await resend.emails.send({
       from: `${sender_email}`,
-      to: [process.env.RECEIVE_EMAIL],
+      to: `${process.env.RECEIVE_EMAIL}`,
       subject: `New message from ${from_name}`,
       react: <EmailNotification name={from_name} email={sender_email} message={message} />,
     });
+    console.log(`Resend json response: ${JSON.stringify(emailRes, null, 2)}`)
+
+    if (emailRes.data === null) {
+      return { success: false }
+    }
   } catch(err) {
     throw new Error(`Failed to send email: ${err}`);
   }

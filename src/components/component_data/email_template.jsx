@@ -32,12 +32,6 @@ export const EmailNotification = ({
   </Html>
 );
 
-EmailNotification.PreviewProps = {
-  name: 'Alan',
-  email: 'example@gmail.com',
-  message: 'Hello World'
-};
-
 export default EmailNotification;
 
 const main = {

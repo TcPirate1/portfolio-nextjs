@@ -26,6 +26,8 @@ export default function Contact() {
       const response = await sendContactEmail(formState);
       if (response.success) {
         alert("Message sent!")
+      } else {
+        alert("Message not sent")
       }
     } catch (err) {
       console.error(`Error: ${err}`)
