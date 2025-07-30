@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser'
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
+  const captchaRef = useRef();
   const [form, setForm] = useState({
     from_name: "",
     sender_email: "",
@@ -15,7 +16,11 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (token) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const token = captchaRef.current?.getValue();
+    
     const params = {
       ...form,
       "g-recaptcha-response": token
@@ -57,7 +62,7 @@ const Contact = () => {
         <p id="failure">Oopsie...message not sent.</p>
         <p id="success">Your message was sent successfully. Thank you!</p>
 
-        <form onSubmit={e => e.preventDefault()}>
+        <form onSubmit={handleSubmit}>
           <input type="hidden" name="number" />
           <div>
             <label htmlFor="name">
@@ -106,7 +111,7 @@ const Contact = () => {
           <div>
           <ReCAPTCHA
           sitekey="6LeDUvwoAAAAACteWZ-6Ptj_5NHpoKLCBByauLRB"
-          onChange={handleSubmit}
+          ref={captchaRef}
           />
           </div>
             <button type="submit" name="submit" id="submit">
