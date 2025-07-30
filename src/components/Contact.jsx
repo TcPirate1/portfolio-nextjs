@@ -4,12 +4,10 @@ import emailjs from '@emailjs/browser'
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
-  const formRef = useRef();
   const [form, setForm] = useState({
     from_name: "",
     sender_email: "",
     message: "",
-    "g-recaptcha-response": ""
   });
 
   const handleChange = (e) => {
@@ -17,15 +15,17 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (token) => {
+    const params = {
+      ...form,
+      "g-recaptcha-response": token
+    };
 
-    setTimeout(() => {}, 2000);
     emailjs
       .send(
         "service_gyqj9s6",
         "template_8ohyoci",
-        formRef.current,
+        params,
         "9s8UWgGcYff43JhPb"
       )
       .then(
@@ -37,7 +37,6 @@ const Contact = () => {
             from_name: "",
             sender_email: "",
             message: "",
-            "g-recaptcha-response": ""
           });
         },
         (error) => {
@@ -58,7 +57,7 @@ const Contact = () => {
         <p id="failure">Oopsie...message not sent.</p>
         <p id="success">Your message was sent successfully. Thank you!</p>
 
-        <form ref={formRef} onSubmit={handleSubmit}>
+        <form onSubmit={e => e.preventDefault()}>
           <input type="hidden" name="number" />
           <div>
             <label htmlFor="name">
@@ -105,11 +104,10 @@ const Contact = () => {
             </label>
           </div>
           <ReCAPTCHA
-          value ={form["g-recaptcha-response"]}
           sitekey="6LeDUvwoAAAAACteWZ-6Ptj_5NHpoKLCBByauLRB"
-          onChange={handleChange}
+          onChange={handleSubmit}
           />
-            <button name="submit" type="submit" id="submit">
+            <button type="submit" name="submit" id="submit">
               SEND
             </button>
         </form>
