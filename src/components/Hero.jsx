@@ -19,7 +19,7 @@ const Hero = () => {
         <h1>I&#39;m Terence Chen AKA TC 👋</h1>
         <p>
           I&#39;m a software developer student based in Christchurch, New
-          Zealand, graduated from Whitecliffe. You can find me on various social
+          Zealand.<br/>You can find me on various social
           media platforms below.
         </p>
         <div className="social-icons">
@@ -40,10 +40,10 @@ const Hero = () => {
           })}
         </div>
         <p>
-          You can find out more about me <Link href="#About" >here</Link>, or
-          to find out my skills <Link href="#Skills" >here</Link> or what{" "}
-          projects I&#39;ve done <Link href="#Projects" >here</Link>!{" "}
-          I also have a <Link href="#Contact" >contact form</Link>!
+          You can find out more about me <Link href="#About" >here</Link>,<br/>
+          my skills <Link href="#Skills" >here</Link> or what{" "}
+          projects I&#39;ve done <Link href="#Projects" >here</Link>!{" "}<br/>
+          I am always looking for opportunities, you can <Link href="#Contact">contact me here</Link>!
         </p>
       </div>
     </div>
