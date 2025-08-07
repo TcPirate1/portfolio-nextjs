@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-// module.exports = nextConfig
+const nextConfig = {
+  turbopack: {
+    resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
+  }
+};
 
 const cspHeader = `
     default-src 'self';
