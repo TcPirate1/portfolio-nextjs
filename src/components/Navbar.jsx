@@ -6,14 +6,14 @@ const Navbar = () => {
       <div className="logo">
         <Link href="/">TC&#39;s Portfolio</Link>
       </div>
-      <a
+      <Link
         href="https://docs.google.com/document/d/1Zc8H68AbxdvvOT3dOLtYWYYkKmHn9I2PPiGwvmVeANs/edit?usp=sharing"
         className="cta-btn"
         target="_blank"
         rel="noopener noreferrer"
       >
         Resume
-      </a>
+      </Link>
     </div>
   );
 };

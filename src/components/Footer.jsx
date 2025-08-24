@@ -1,5 +1,6 @@
 import { socialLinks } from "./component_data/social_links";
 import { random_keyID } from "./component_data/random_keyID";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
         <div className="social_icons">
           {socialLinks.map((link) => {
             return (
-              <a
+              <Link
                 key={random_keyID()}
                 href={link.url}
                 aria-label={
@@ -20,7 +21,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
               >
                 <i className={`fa-brands fa-${link.name}`}></i>
-              </a>
+              </Link>
             );
           })}
         </div>

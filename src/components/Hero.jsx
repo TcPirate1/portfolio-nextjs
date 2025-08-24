@@ -25,7 +25,7 @@ const Hero = () => {
         <div className="social-icons">
           {socialLinks.map((link) => {
             return (
-              <a
+              <Link
                 key={random_keyID()}
                 href={link.url}
                 aria-label={
@@ -35,7 +35,7 @@ const Hero = () => {
                 rel="noopener noreferrer"
               >
                 <i className={`fa-brands fa-${link.name}`}></i>
-              </a>
+              </Link>
             );
           })}
         </div>

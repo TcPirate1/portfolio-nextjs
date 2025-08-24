@@ -1,8 +1,9 @@
 "use client";
 import projectData from "./component_data/project_data";
 import { random_keyID } from "./component_data/random_keyID";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image.js";
+import Link from "next/link";
 
 const Projects = () => {
 
@@ -32,13 +33,13 @@ const toggleVisibility = (projID) => {
                 <i className="fa-regular fa-folder-open folder-icon"></i>
                 <div className="small-icons">
                   {youtubeLink(project.link) ? (
-                    <a href={project.link} target="_blank">
+                    <Link href={project.link} target="_blank" rel="noopener noreferrer">
                       <i className="fa-brands fa-youtube fa-2xl"></i>
-                    </a>
+                    </Link>
                   ) : (
-                    <a href={project.link} target="_blank">
+                    <Link href={project.link} target="_blank" rel="noopener noreferrer">
                       <i className="fa-brands fa-square-github fa-2xl"></i>
-                    </a>
+                    </Link>
                   )}
                 </div>
               </div>
