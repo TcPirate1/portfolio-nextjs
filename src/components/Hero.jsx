@@ -11,9 +11,9 @@ const Hero = () => {
         className="profile-img"
         width={300}
         height={300}
-        loading="lazy"
         sizes="(max-width: 750px) 100vw, 50vw, 33vw"
         alt="Terence&#39;s headshot"
+        priority
       />
       <div className="hero-text">
         <h1>I&#39;m Terence Chen AKA TC 👋</h1>
@@ -40,9 +40,9 @@ const Hero = () => {
           })}
         </div>
         <p>
-          You can find out more about me <Link href="#About" >here</Link>,<br/>
-          my skills <Link href="#Skills" >here</Link> or what{" "}
-          projects I&#39;ve done <Link href="#Projects" >here</Link>!{" "}<br/>
+          You can find out more <Link href="#About" >about me here</Link>,<br/>
+          my <Link href="#Skills" >skills here</Link> or <Link href="#Projects" >what{" "}
+          projects I&#39;ve done here</Link>!{" "}<br/>
           I am always looking for opportunities, you can <Link href="#Contact">contact me here</Link>!
         </p>
       </div>

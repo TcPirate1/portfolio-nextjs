@@ -33,11 +33,11 @@ const toggleVisibility = (projID) => {
                 <i className="fa-regular fa-folder-open folder-icon"></i>
                 <div className="small-icons">
                   {youtubeLink(project.link) ? (
-                    <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                    <Link href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`Video for ${project.title}`}>
                       <i className="fa-brands fa-youtube fa-2xl"></i>
                     </Link>
                   ) : (
-                    <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                    <Link href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`Github link for ${project.title}`}>
                       <i className="fa-brands fa-square-github fa-2xl"></i>
                     </Link>
                   )}
@@ -46,13 +46,13 @@ const toggleVisibility = (projID) => {
               <h3>{project.title}</h3>
               <br />
                 <Image
-                  src={`${project.image}`}
+                  src={project.image}
                   height={250}
                   width={300}
                   sizes="(max-width: 750px) 100vw, 50vw, 33vw"
                   loading="lazy"
                   unoptimized={project.title === "Avalonia GUI for Card Searcher" ? (false) : (true)}
-                  alt={project.title}
+                  alt={`Image for ${project.title}`}
                 />
               <button
                 onClick={() => toggleVisibility(project.id)}
