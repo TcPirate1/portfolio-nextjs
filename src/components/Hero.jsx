@@ -11,7 +11,7 @@ const Hero = () => {
         className="profile-img"
         width={300}
         height={300}
-        sizes="(max-width: 750px) 100vw, 50vw, 33vw"
+        sizes="(max-width: 768px) 100vw, 50vw, 33vw"
         alt="Terence&#39;s headshot"
         priority
       />

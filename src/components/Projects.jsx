@@ -49,7 +49,7 @@ const toggleVisibility = (projID) => {
                   src={project.image}
                   height={250}
                   width={300}
-                  sizes="(max-width: 750px) 100vw, 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 50vw, 33vw"
                   loading="lazy"
                   unoptimized={project.title === "Avalonia GUI for Card Searcher" ? (false) : (true)}
                   alt={`Image for ${project.title}`}
