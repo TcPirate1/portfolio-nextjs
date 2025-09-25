@@ -15,13 +15,7 @@ export const languages_libraries_frameworks = [
     name: "NextJS"
   },
   {
-    name: "Nodejs"
-  },
-  {
     name: "npm"
-  },
-  {
-    name: "php"
   },
   {
     name: "Python"
@@ -31,12 +25,6 @@ export const languages_libraries_frameworks = [
   },
   {
     name: ".NET"
-  },
-  {
-    name: "MySql"
-  },
-  {
-    name: "MongoDB"
   },
   {
     name: "Kotlin"
