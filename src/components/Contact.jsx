@@ -1,55 +1,39 @@
 "use client";
 import { useState, useRef } from "react";
-import emailjs from '@emailjs/browser'
+import Hcaptcha from '@hcaptcha/react-hcaptcha';
 import Script from "next/script";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const Contact = () => {
-  const captchaRef = useRef(null);
-  const [form, setForm] = useState({
-    from_name: "",
-    sender_email: "",
-    message: "",
-  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
+  const onHcaptchaChange = (token) => {
+    setValue("h-captcha-response", token)
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const token = captchaRef.current?.getValue();
-    
-    const params = {
-      ...form,
-      "g-recaptcha-response": token
-    };
-
-    emailjs
-      .send(
-        "service_gyqj9s6",
-        "template_8ohyoci",
-        params,
-        "9s8UWgGcYff43JhPb"
-      )
-      .then(
-        (result) => {
-          console.log("Success!", result.text, result.status);
-          document.getElementById("success").style.display = "block";
-          document.getElementById("failure").style.display = "none";
-          setForm({
-            from_name: "",
-            sender_email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          console.log("Failed", error.text);
-          document.getElementById("failure").style.display = "block";
-          document.getElementById("success").style.display = "none";
+    const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify({
+                access_key: "YOUR_ACCESS_KEY_HERE",
+                name: e.target.name.value,
+                email: e.target.email.value,
+                message: e.target.message.value,
+            }),
+        });
+        const result = await response.json();
+        if (result.success) {
+            console.log(result);
         }
-      );
   };
 
   return (
@@ -108,11 +92,10 @@ const Contact = () => {
               ></textarea>
             </label>
           </div>
-          <Script
-            className="g-recaptcha"
-            sitekey="6LeDUvwoAAAAACteWZ-6Ptj_5NHpoKLCBByauLRB"
-            ref={captchaRef}
-            strategy="lazyOnload"
+          <HCaptcha
+          sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+          reCaptchaCompat={false}
+          onVerify={onHcaptchaChange}
             />
             <button type="submit" name="submit" id="submit">
               SEND

@@ -1,10 +1,10 @@
 {
   "version": "5",
   "specifiers": {
+    "npm:@hcaptcha/react-hcaptcha@^1.17.3": "1.17.3_react@19.2.3_react-dom@19.2.3__react@19.2.3",
     "npm:@vercel/analytics@^1.5.0": "1.6.1_next@15.5.9__react@19.2.3__react-dom@19.2.3___react@19.2.3_react@19.2.3_react-dom@19.2.3__react@19.2.3",
     "npm:eslint-config-next@^15.3.5": "15.5.9_eslint@9.39.2_@typescript-eslint+parser@8.50.1__eslint@9.39.2__typescript@5.9.3_eslint-plugin-import@2.32.0__eslint@9.39.2",
     "npm:eslint@^9.30.1": "9.39.2",
-    "npm:hcaptcha@0.2": "0.2.0",
     "npm:next@^15.5.9": "15.5.9_react@19.2.3_react-dom@19.2.3__react@19.2.3",
     "npm:react-dom@^19.1.0": "19.2.3_react@19.2.3",
     "npm:react@^19.1.0": "19.2.3",
@@ -13,6 +13,9 @@
     "npm:uuid@^11.1.0": "11.1.0"
   },
   "npm": {
+    "@babel/runtime@7.28.4": {
+      "integrity": "sha512-Q/N6JNWvIvPnLDvjlE1OUBLPQHH6l3CltCEsHIujp45zQUSSh8K+gHnaEX45yAT1nyngnINhvWtzN+Nb9D8RAQ=="
+    },
     "@emnapi/core@1.7.1": {
       "integrity": "sha512-o1uhUASyo921r2XtHYOHy7gdkGLge8ghBEQHMWmyJFoXlpU58kIrhhN3w26lpQb6dspetweapMn2CSNwQ8I4wg==",
       "dependencies": [
@@ -87,6 +90,18 @@
       "dependencies": [
         "@eslint/core",
         "levn"
+      ]
+    },
+    "@hcaptcha/loader@2.3.0": {
+      "integrity": "sha512-i4lnNxKBe+COf3R1nFZEWaZoHIoJjvDgWqvcNrdZq8ehoSNMN6KVZ56dcQ02qKie2h3+BkbkwlJA9DOIuLlK/g=="
+    },
+    "@hcaptcha/react-hcaptcha@1.17.3_react@19.2.3_react-dom@19.2.3__react@19.2.3": {
+      "integrity": "sha512-6c4rAMrRBGpxHcXJ3dh+5o6I9GY7J82S8qJKC3zkMN4fxMA1ybhwXwqZFAQwU4QY1np+0HNlU2WEPL4jThahIw==",
+      "dependencies": [
+        "@babel/runtime",
+        "@hcaptcha/loader",
+        "react",
+        "react-dom"
       ]
     },
     "@humanfs/core@0.19.1": {
@@ -1379,9 +1394,6 @@
         "function-bind"
       ]
     },
-    "hcaptcha@0.2.0": {
-      "integrity": "sha512-x25z3RoEa9oqfyuQsgk2olc+LCNVDAJaGKUP1qFhpAybB6qjqOf4qB2y1E3LJpXDvM229JWEywc6iWnzWvGjNw=="
-    },
     "ignore@5.3.2": {
       "integrity": "sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g=="
     },
@@ -2400,10 +2412,10 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
+        "npm:@hcaptcha/react-hcaptcha@^1.17.3",
         "npm:@vercel/analytics@^1.5.0",
         "npm:eslint-config-next@^15.3.5",
         "npm:eslint@^9.30.1",
-        "npm:hcaptcha@0.2",
         "npm:next@^15.5.9",
         "npm:react-dom@^19.1.0",
         "npm:react@^19.1.0",

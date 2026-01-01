@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hcaptcha/react-hcaptcha": "^1.17.3",
     "@vercel/analytics": "^1.5.0",
     "eslint": "^9.30.1",
     "eslint-config-next": "^15.3.5",
-    "hcaptcha": "^0.2.0",
     "next": "^15.5.9",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
