@@ -1,23 +1,7 @@
 "use client";
-import { useState } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const Contact = () => {
-
-  const [form, setForm] = useState({
-    from_name: "",
-    sender_email: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  };
-
-  const onHcaptchaChange = (token) => {
-    setValue("h-captcha-response", token)
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,28 +13,20 @@ const Contact = () => {
             },
             body: JSON.stringify({
                 access_key: "5681080a-716f-4005-a4af-295926b00cef", // Form public key
-                name: form.from_name,
-                email: form.email,
-                message: form.message,
+                name: e.target.name.value,
+                email: e.target.email.value,
+                message: e.target.message.value,
             }),
         });
-        await response.json().then(
-        (result) => {
-          console.log("Success!", result.text, result.status);
-          document.getElementById("success").style.display = "block";
-          document.getElementById("failure").style.display = "none";
-          setForm({
-            from_name: "",
-            sender_email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          console.log("Failed", error.text);
-          document.getElementById("failure").style.display = "block";
-          document.getElementById("success").style.display = "none";
+        const result = await response.json();
+        if (result.success) {
+          document.getElementById("success") = "block";
+          document.getElementById("failure") = "none";
         }
-      );
+        else {
+          document.getElementById("success") = "none";
+          document.getElementById("failure") = "block";
+        }
   };
 
   return (
@@ -64,7 +40,6 @@ const Contact = () => {
         <p id="success">Your message was sent successfully. Thank you!</p>
 
         <form onSubmit={handleSubmit}>
-          <input type="hidden" name="number" />
           <div>
             <label htmlFor="name">
               <span className="required">Name: *</span>

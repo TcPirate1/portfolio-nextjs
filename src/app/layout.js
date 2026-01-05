@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
         />
         <Script
           type="text/javascript"
-          src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+          src="https://web3forms.com/client/script.js"
           async
           defer
         />
