@@ -1,10 +1,14 @@
 "use client";
-import { useState, useRef } from "react";
-import Hcaptcha from '@hcaptcha/react-hcaptcha';
-import Script from "next/script";
+import { useState } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const Contact = () => {
+
+  const [form, setForm] = useState({
+    from_name: "",
+    sender_email: "",
+    message: "",
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,16 +28,29 @@ const Contact = () => {
                 Accept: "application/json",
             },
             body: JSON.stringify({
-                access_key: "YOUR_ACCESS_KEY_HERE",
-                name: e.target.name.value,
-                email: e.target.email.value,
-                message: e.target.message.value,
+                access_key: "5681080a-716f-4005-a4af-295926b00cef", // Form public key
+                name: form.from_name,
+                email: form.email,
+                message: form.message,
             }),
         });
-        const result = await response.json();
-        if (result.success) {
-            console.log(result);
+        await response.json().then(
+        (result) => {
+          console.log("Success!", result.text, result.status);
+          document.getElementById("success").style.display = "block";
+          document.getElementById("failure").style.display = "none";
+          setForm({
+            from_name: "",
+            sender_email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          console.log("Failed", error.text);
+          document.getElementById("failure").style.display = "block";
+          document.getElementById("success").style.display = "none";
         }
+      );
   };
 
   return (
