@@ -1,9 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  turbopack: {
-    resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
-  }
-};
 
 const cspHeader = `
     default-src 'self';
@@ -18,9 +13,11 @@ const cspHeader = `
     upgrade-insecure-requests;
 `;
 
-(module.exports = nextConfig),
-  {
-    async headers() {
+const nextConfig = {
+  turbopack: {
+    resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
+  },
+  async headers() {
       return [
         {
           source: "/(.*)",
@@ -33,4 +30,6 @@ const cspHeader = `
         },
       ];
     },
-  };
+};
+
+export default nextConfig;
